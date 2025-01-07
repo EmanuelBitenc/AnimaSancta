@@ -5,7 +5,7 @@ import homePic from "@/app/assets/imgs/home.jpg";
 
 export default function Home() {
   return (
-    <main className="flex-grow">
+    <main className="flex-grow bg-orange-100/80 ">
       <div className="relative  w-full h-96">
         <Image
           src={homePic}
