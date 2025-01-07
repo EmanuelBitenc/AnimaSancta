@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #451a03;
+  --background: #a28c81;
   --foreground: #ffffff;
 
   --fontTsuki: "Tsukimi Rounded", sans-serif;
@@ -11,6 +11,11 @@
 
 .fontTsuki {
   font-family: var(--fontTsuki);
+}
+
+.container {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
 }
 
 @media (prefers-color-scheme: black) {

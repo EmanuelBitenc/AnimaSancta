@@ -14,10 +14,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body
-        className={`antialiased flex flex-col min-h-screen`}
-        suppressHydrationWarning
-      >
+      <body className={`antialiased `} suppressHydrationWarning>
         <Header />
         {children}
         <Footer />

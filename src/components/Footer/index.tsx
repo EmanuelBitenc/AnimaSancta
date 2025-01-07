@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className=" h-fit w-full  px-14 ">
-      <div className="flex flex-col py-4 justify-center text-center">
+    <footer className="  bg-amber-950 align-bottom">
+      <div className="flex flex-col py-2 justify-center text-center">
         <div>
           <h1 className="fontTsuki text-xl">AnimaSancta</h1>
         </div>
