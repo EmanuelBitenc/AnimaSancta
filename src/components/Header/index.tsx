@@ -1,11 +1,11 @@
 export function Header() {
   return (
-    <header className="h-20 flex justify-between  px-14  items-center bg-amber-950">
+    <header className="h-20 flex py-2 gap-2 sm:gap-10 justify-center md:justify-between  flex-wrap  px-14 items-center bg-amber-950 ">
       <div>
-        <h1 className="fontTsuki text-2xl">AnimaSancta</h1>
+        <h1 className="fontTsuki text-2xl ">AnimaSancta</h1>
       </div>
       <nav>
-        <ul className="flex gap-4">
+        <ul className="flex gap-4   ">
           <li>
             <a href="/">Home</a>
           </li>

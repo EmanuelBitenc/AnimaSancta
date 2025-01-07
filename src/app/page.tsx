@@ -13,6 +13,7 @@ export default function Home() {
           layout="fill"
           content="responsive"
           objectFit="cover"
+          objectPosition="right"
           priority={true} // Carregamento prioritário para a imagem principal
         />
         <div className="relative  w-full h-96 bg-black opacity-30"></div>
