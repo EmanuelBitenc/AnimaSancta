@@ -3,13 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #b4a39a;
+  --foreground: #ffffff;
+
+  --fontTsuki: "Tsukimi Rounded", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+.fontTsuki {
+  font-family: var(--fontTsuki);
+}
+
+@media (prefers-color-scheme: black) {
   :root {
-    --background: #0a0a0a;
+    --background: #c7bab3;
     --foreground: #ededed;
   }
 }
@@ -17,5 +23,5 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: poppins, Helvetica, sans-serif;
 }
