@@ -22,7 +22,7 @@ export const Lista = () => {
       <Form action="">
         {" "}
         {lista.map((mandamento, index) => (
-          <div key={mandamento.id}>
+          <div key={mandamento.id} className="py-2">
             <div
               className=" flex gap-8 justify-between items-center cursor-pointer  text-amber-950"
               onClick={() => handleClick(mandamento.id)}
