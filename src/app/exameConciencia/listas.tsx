@@ -10,7 +10,7 @@ export const Lista = () => {
     <div className="w-3/5 mx-auto">
       {lista.map((mandamento) => (
         <div key={mandamento.id}>
-          <div className="flex justify-between items-center cursor-pointer">
+          <div className="flex justify-between items-center cursor-pointer  text-amber-950">
             <h2 className="py-4 font-bold text-lg ">{mandamento.mandamento}</h2>
             <FiChevronDown className="w-8 h-8" />
           </div>
