@@ -7,17 +7,19 @@ export const Lista = () => {
     console.log("teste");
   }
   return (
-    <div className="w-3/5 mx-auto">
+    <div className="w-10/12 sm:w-3/5 mx-auto">
       {lista.map((mandamento) => (
         <div key={mandamento.id}>
-          <div className="flex justify-between items-center cursor-pointer  text-amber-950">
-            <h2 className="py-4 font-bold text-lg ">{mandamento.mandamento}</h2>
-            <FiChevronDown className="w-8 h-8" />
+          <div className=" flex gap-8 justify-between items-center cursor-pointer  text-amber-950">
+            <h2 className="sm:py-4 font-bold sm:text-lg ">
+              {mandamento.mandamento}
+            </h2>
+            <FiChevronDown className="w-10 h-10  sm:w-8 sm:h-8" />
           </div>
           <ul className="w-11/12  ">
             {mandamento.perguntas.map((pergunta) => (
               <div key={pergunta.id}>
-                <li className="py-4 px-10 flex flex-col sm:flex-row gap-4 justify-between items-center hover:bg-amber-950/20 rounded-lg">
+                <li className="py-4 sm:px-10 flex flex-row  gap-4 justify-between items-center hover:bg-amber-950/20 rounded-lg">
                   <label
                     htmlFor={pergunta.pergunta}
                     className="w-11/12 text-sm sm:text-base"
