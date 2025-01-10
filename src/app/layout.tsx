@@ -14,7 +14,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`antialiased `} suppressHydrationWarning>
+      <body className={`antialiased h-full `} suppressHydrationWarning>
         <Header />
         {children}
         <Footer />
