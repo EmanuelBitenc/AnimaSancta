@@ -1,4 +1,4 @@
-interface Pergunta {
+export interface Pergunta {
   id: number;
   pergunta: string;
 }
