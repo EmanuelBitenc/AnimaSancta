@@ -2,14 +2,20 @@ import Link from "next/link";
 
 export function Nav() {
   return (
-    <div className="h-20 flex gap-2 sm:gap-10 justify-center md:justify-between  flex-wrap  px-14 items-center  ">
-      <div>
-        <Link href="/">
-          <h1 className="fontTsuki text-2xl ">AnimaSancta</h1>
-        </Link>
-      </div>
+    <div className=" py-2 flex gap-2 sm:gap-10 flex-col sm:flex-row justify-center sm:justify-between  flex-wrap px-2 sm:px-14 self-center items-center  ">
+      <Link href="/">
+        <h1 className="fontTsuki text-2xl ">AnimaSancta</h1>
+      </Link>
       <nav>
-        <ul className="flex gap-4   ">
+        <ul className="flex sm:gap-4   ">
+          <li>
+            <Link
+              href="/"
+              className="px-2 sm:px-4 py-2   hover:underline hover:drop-shadow"
+            >
+              Home
+            </Link>
+          </li>
           <li>
             <Link
               href="/exameConciencia"
