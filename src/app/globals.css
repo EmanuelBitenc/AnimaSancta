@@ -30,3 +30,15 @@ body {
   background: var(--background);
   font-family: poppins, Helvetica, sans-serif;
 }
+
+.transition-content {
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  max-height: 0;
+  opacity: 0;
+}
+
+.transition-content.open {
+  max-height: 500px;
+  opacity: 1;
+}

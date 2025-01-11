@@ -24,7 +24,7 @@ export const Lista = () => {
         {lista.map((mandamento, index) => (
           <div key={mandamento.id} className="py-2">
             <div
-              className=" flex gap-8 justify-between items-center cursor-pointer  text-amber-950"
+              className=" flex gap-8 justify-between items-center cursor-pointer  text-amber-950 z-10"
               onClick={() => handleClick(mandamento.id)}
             >
               <h2 className="sm:py-4 font-bold sm:text-lg ">
@@ -36,11 +36,17 @@ export const Lista = () => {
                 }`}
               />
             </div>
-            {painelOpen.includes(mandamento.id) && (
-              <div>
-                <Perguntas perguntas={mandamento.perguntas} />
-              </div>
-            )}
+            <div
+              className={`transition-content ${
+                painelOpen.includes(mandamento.id) ? "open" : ""
+              }`}
+            >
+              {painelOpen.includes(mandamento.id) && (
+                <div>
+                  <Perguntas perguntas={mandamento.perguntas} />
+                </div>
+              )}
+            </div>
           </div>
         ))}
         <button
