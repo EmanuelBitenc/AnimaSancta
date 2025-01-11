@@ -67,13 +67,28 @@ export const gerarPdf = (respostas: RespostaProps[]) => {
   y += 20; // Ajusta o Y após o logo
 
   Object.entries(agrupado).forEach(([mandamentoTexto, perguntas]) => {
+    doc.setFontSize(14);
     doc.text(`${mandamentoTexto}`, 10, y);
     y += 10;
 
-    doc.setFontSize(13);
+    doc.setFontSize(12);
     perguntas.forEach((pergunta) => {
       // Divide o texto das perguntas para caber dentro do "container"
+      const perguntaTexto = `• ${pergunta.perguntaTexto}`;
       const textoDetalhe = `- ${pergunta.textoDetalhe}`;
+
+      const linhasPergunta: string[] = doc.splitTextToSize(
+        perguntaTexto,
+        containerWidth
+      );
+
+      // Adiciona a pergunta no PDF
+      linhasPergunta.forEach((linha) => {
+        doc.text(linha, 10, y);
+        y += 10;
+      });
+      y += 2;
+
       const linhas: string[] = doc.splitTextToSize(
         textoDetalhe,
         containerWidth
