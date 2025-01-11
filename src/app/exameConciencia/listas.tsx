@@ -111,7 +111,7 @@ export const Lista = () => {
                       <li key={pergunta.id} className="my-3">
                         <div className="py-4 sm:px-10 flex flex-col gap-2 justify-between px-3 hover:bg-amber-950/20 rounded-lg">
                           {/* Checkbox e Pergunta */}
-                          <label className="flex justify-between gap-5 w-full items-center cursor-pointer text-sm">
+                          <label className="flex justify-between gap-5 w-full items-center cursor-pointer text-sm sm:text-lg">
                             <span className="flex-1">{pergunta.texto}</span>
                             <input
                               type="checkbox"

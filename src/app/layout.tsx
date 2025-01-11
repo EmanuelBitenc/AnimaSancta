@@ -36,13 +36,16 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
 
-        <link rel="icon" type="image/png" href={"./assets/imgs/iconPage.png"} />
+        <link rel="icon" type="image/png" href={"/iconPage.png"} />
         <link
           href="https://fonts.googleapis.com/css2?family=Tsukimi+Rounded&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className={`antialiased h-full `} suppressHydrationWarning>
+      <body
+        className={` min-h-[calc(100vh-500px)]  bg-gradient-to-l from-[#a28c81] via-[#9a7e6f] to-[#8e6d59]" `}
+        suppressHydrationWarning
+      >
         <Header />
         {children}
         <Footer />
