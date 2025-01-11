@@ -54,11 +54,15 @@ export const gerarPdf = (respostas: RespostaProps[]) => {
   doc.setFont("Tsukimi", "normal");
 
   // Adiciona o nome do logo
+
+  doc.setFontSize(16);
   doc.text("AnimaSancta\n", getTextWidth("AnimaSancta"), y);
 
   // Usar a fonte "PoppinsRegular"
   doc.setFont("PoppinsRegular", "normal");
   y += 10;
+
+  doc.setFontSize(14);
   doc.text("Exame de Consciência\n", getTextWidth("Exame de Consciência"), y);
   y += 20; // Ajusta o Y após o logo
 
@@ -66,6 +70,7 @@ export const gerarPdf = (respostas: RespostaProps[]) => {
     doc.text(`${mandamentoTexto}`, 10, y);
     y += 10;
 
+    doc.setFontSize(13);
     perguntas.forEach((pergunta) => {
       // Divide o texto das perguntas para caber dentro do "container"
       const textoDetalhe = `- ${pergunta.textoDetalhe}`;
@@ -86,10 +91,10 @@ export const gerarPdf = (respostas: RespostaProps[]) => {
         }
       });
 
-      y += 10; // Espaçamento entre as perguntas
+      y += 1; // Espaçamento entre as perguntas
     });
 
-    y += 10; // Espaçamento entre mandamentos
+    y += 2; // Espaçamento entre mandamentos
   });
 
   doc.save("exameDeConsciencia.pdf");
