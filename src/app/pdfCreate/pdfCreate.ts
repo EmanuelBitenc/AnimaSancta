@@ -1,32 +1,96 @@
-import { Mandamento, Pergunta } from "@/data/ListaExameConsciencia";
-import jsPDF from "jspdf";
+import { jsPDF } from "jspdf";
+import { RespostaProps } from "../exameConciencia/listas";
+import { PoppinsRegular } from "../assets/fonts/PoppinsRegular";
+import { Tsukimi } from "../assets/fonts/TsukimiRounded";
 
-export const gerarPdf = (data: Mandamento) => {
-  const doc = new jsPDF();
+export const agruparPorMandamento = (respostas: RespostaProps[]) => {
+  const agrupado: {
+    [mandamentoTexto: string]: {
+      perguntaTexto: string;
+      textoDetalhe: string;
+    }[];
+  } = {};
 
-  // Adiciona o título
-  doc.setFontSize(16);
-  doc.text("Exame de Consciência", 50, 20, { align: "justify" });
-
-  // Adiciona os dados do formulário
-  let y = 30;
-  for (let mandamentoId in data) {
-    const mandamento = data[mandamentoId];
-    doc.setFontSize(12);
-    doc.text(`Mandamento: ${mandamentoId}`, 20, y);
-    y += 10;
-
-    mandamento.pergunta.forEach((pergunta: Pergunta, perguntaId: string) => {
-      doc.text(`Pergunta: ${pergunta.texto}`, 20, y);
-      y += 10;
-      if (pergunta.texto) {
-        doc.text(`Detalhe: ${pergunta.textoDetalhe}`, 20, y);
-        y += 10;
-      }
+  respostas.forEach((resposta) => {
+    if (!agrupado[resposta.mandamentoTexto]) {
+      agrupado[resposta.mandamentoTexto] = [];
+    }
+    agrupado[resposta.mandamentoTexto].push({
+      perguntaTexto: resposta.perguntaTexto,
+      textoDetalhe: resposta.textoDetalhe,
     });
-    y += 10;
+  });
+
+  return agrupado;
+};
+
+const TsukimiBase64 = Tsukimi;
+const PoppinsRegularBase64 = PoppinsRegular;
+
+export const gerarPdf = (respostas: RespostaProps[]) => {
+  const agrupado = agruparPorMandamento(respostas);
+  const doc = new jsPDF({});
+
+  const containerWidth = 180; //largura do container
+
+  function getTextWidth(text: string) {
+    const larguraTexto = doc.getTextWidth(text);
+    const larguraPagina = doc.internal.pageSize.width;
+    const xCentralizado = (larguraPagina - larguraTexto) / 2;
+    return xCentralizado;
   }
 
-  // Salva o PDF
-  doc.save("exame_de_consciencia.pdf");
+  // Adicionar as fontes ao VFS
+  doc.addFileToVFS("PoppinsRegular.ttf", PoppinsRegularBase64);
+  doc.addFileToVFS("Tsukimi.ttf", TsukimiBase64);
+
+  // Registrar as fontes
+  doc.addFont("PoppinsRegular.ttf", "PoppinsRegular", "normal");
+  doc.addFont("Tsukimi.ttf", "Tsukimi", "normal");
+
+  let y = 20; // Coordenada Y inicial no PDF
+
+  // Usar a fonte "Tsukimi"
+  doc.setFont("Tsukimi", "normal");
+
+  // Adiciona o nome do logo
+  doc.text("AnimaSancta\n", getTextWidth("AnimaSancta"), y);
+
+  // Usar a fonte "PoppinsRegular"
+  doc.setFont("PoppinsRegular", "normal");
+  y += 10;
+  doc.text("Exame de Consciência\n", getTextWidth("Exame de Consciência"), y);
+  y += 20; // Ajusta o Y após o logo
+
+  Object.entries(agrupado).forEach(([mandamentoTexto, perguntas]) => {
+    doc.text(`${mandamentoTexto}`, 10, y);
+    y += 10;
+
+    perguntas.forEach((pergunta) => {
+      // Divide o texto das perguntas para caber dentro do "container"
+      const textoDetalhe = `- ${pergunta.textoDetalhe}`;
+      const linhas: string[] = doc.splitTextToSize(
+        textoDetalhe,
+        containerWidth
+      );
+
+      // Adiciona cada linha dentro do "container" com a quebra de linha automática
+      linhas.forEach((linha) => {
+        doc.text(linha, 20, y);
+        y += 10;
+
+        // Quebra de página se Y exceder o limite
+        if (y > 280) {
+          doc.addPage();
+          y = 10;
+        }
+      });
+
+      y += 10; // Espaçamento entre as perguntas
+    });
+
+    y += 10; // Espaçamento entre mandamentos
+  });
+
+  doc.save("exameDeConsciencia.pdf");
 };
