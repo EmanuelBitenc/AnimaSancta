@@ -148,7 +148,11 @@ export const Lista = () => {
             </div>
           ))}
           <div className="w-fit flex  gap-4 px-4 py-2 bg-amber-950 rounded-full mt-8 mb-10 mx-auto">
-            <input type="submit" value="Preparar para confissão " />
+            <input
+              type="submit"
+              value="Preparar para confissão "
+              className="cursor-pointer"
+            />
             <div className="flex items-center">
               <FiDownload />
             </div>
