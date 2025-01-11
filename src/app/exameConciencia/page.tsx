@@ -1,5 +1,14 @@
 import "../globals.css";
+import Layout from "../layout";
 import { Lista } from "./listas";
+
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AnimaSancta - Exame de Consciência",
+  description:
+    "Página dedicada ao Exame de Consciência, ajudando você a refletir sobre suas ações à luz dos Dez Mandamentos. ",
+};
 
 export default function ExameConciencia() {
   return (

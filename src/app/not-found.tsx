@@ -1,6 +1,12 @@
 import "@/app/globals.css";
 import Link from "next/link";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AnimaSancta - Pagina não encontrada",
+};
+
 export default function NotFound() {
   return (
     <div className="min-h-[calc(100vh-500px)] text-center py-10 ">
