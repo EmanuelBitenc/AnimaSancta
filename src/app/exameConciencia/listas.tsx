@@ -1,58 +1,96 @@
 "use client";
 import "@/app/globals.css";
-import { FiChevronDown } from "react-icons/fi";
-import { lista, Pergunta } from "@/data/ListaExameConsciencia";
+import { FiChevronDown, FiDownload } from "react-icons/fi";
+import { lista } from "@/data/ListaExameConsciencia";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { gerarPdf } from "../pdfCreate/pdfCreate";
+import { agruparPorMandamento, gerarPdf } from "../pdfCreate/pdfCreate";
+
+export interface RespostaProps {
+  mandamentoTexto: string;
+  perguntaTexto: string;
+  textoDetalhe: string;
+}
+
+interface Pergunta {
+  id: number;
+  texto: string;
+}
+
+interface Mandamento {
+  id: number;
+  texto: string;
+  perguntas: Pergunta[];
+}
+interface FormularioData {
+  [mandamentoKey: string]: {
+    [perguntaKey: string]: {
+      checked: boolean;
+      textoDetalhe?: string;
+    };
+  };
+}
 
 export const Lista = () => {
   const methods = useForm();
-
-  const onSubmit = (data: any) => {
-    console.log(data);
-    gerarPdf(data);
-  };
-
-  // Função para gerar o PDF com os dados do formulário
+  const { register, handleSubmit, watch, setValue } = methods;
 
   const [painelOpen, setPainelOpen] = useState<number[]>([]);
 
-  function handleClick(id: number) {
+  const onSubmit = (data: FormularioData) => {
+    const respostas = obterTexto(data);
+    gerarPdf(respostas);
+  };
+
+  const handleClick = (id: number) => {
     setPainelOpen((prevState) =>
       prevState.includes(id)
         ? prevState.filter((openId) => openId !== id)
         : [...prevState, id]
     );
-  }
-  const { register, setValue } = methods;
-
-  const [checked, setChecked] = useState<{ [key: number]: boolean }>({});
-
-  const handleCheckboxChange = (id: number, mandamentoId: number) => {
-    setChecked((prev) => {
-      const isChecked = !prev[id];
-
-      // Atualizar o estado de `checked`
-      const newChecked = { ...prev, [id]: isChecked };
-
-      // Se o checkbox for desmarcado, limpar o campo de texto correspondente
-      if (!isChecked) {
-        // Limpar apenas o campo da pergunta desmarcada
-        setValue(`mandamento${mandamentoId}.pergunta.${id}.texto`, "");
-      }
-      return newChecked;
-    });
   };
+
+  const obterTexto = (data: FormularioData) => {
+    const respostasComTexto: RespostaProps[] = [];
+
+    Object.entries(data).forEach(([mandamentoId, perguntas]) => {
+      const mandamento = lista.find(
+        (m) => `mandamento${m.id}` === mandamentoId
+      );
+
+      if (mandamento) {
+        Object.entries(perguntas).forEach(
+          ([perguntaId, { checked, textoDetalhe }]) => {
+            if (checked) {
+              const pergunta = mandamento.perguntas.find(
+                (p) => `pergunta${p.id}` === perguntaId
+              );
+
+              if (pergunta) {
+                respostasComTexto.push({
+                  mandamentoTexto: mandamento.texto,
+                  perguntaTexto: pergunta.texto,
+                  textoDetalhe: textoDetalhe || "Sem detalhes fornecidos",
+                });
+              }
+            }
+          }
+        );
+      }
+    });
+
+    return respostasComTexto;
+  };
+
   return (
     <div className="w-10/12 sm:w-3/5 mx-auto select-none">
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)}>
-          {" "}
-          {lista.map((mandamento, index) => (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {lista.map((mandamento) => (
             <div key={mandamento.id} className="py-2">
+              {/* Cabeçalho do mandamento */}
               <div
-                className=" flex gap-8 justify-between items-center cursor-pointer  text-amber-950 z-10"
+                className="flex gap-8 justify-between items-center cursor-pointer text-amber-950 z-10"
                 onClick={() => handleClick(mandamento.id)}
               >
                 <h2 className="sm:py-4 font-bold sm:text-lg ">
@@ -64,55 +102,57 @@ export const Lista = () => {
                   }`}
                 />
               </div>
-              <div
-                className={`transition-content ${
-                  painelOpen.includes(mandamento.id) ? "open" : ""
-                }`}
-              >
-                {painelOpen.includes(mandamento.id) && (
-                  <div>
-                    <ul className="w-11/12">
-                      {mandamento.perguntas.map((pergunta: Pergunta) => (
-                        <div key={pergunta.id} className="my-3">
-                          <li className="py-4 sm:px-10 flex flex-col gap-2 justify-between px-3 hover:bg-amber-950/20 rounded-lg">
-                            <label className="flex justify-between gap-5 w-full items-center cursor-pointer text-sm">
-                              <span className="flex-1">{pergunta.texto}</span>
-                              <input
-                                className="h-5 w-5 rounded-md p-2"
-                                checked={!!checked[pergunta.id]}
-                                onChange={() =>
-                                  handleCheckboxChange(
-                                    pergunta.id,
-                                    mandamento.id
-                                  )
-                                }
-                                type="checkbox"
-                              />
-                            </label>
-                            {checked[pergunta.id] && (
-                              <input
-                                type="text"
-                                placeholder="Detalhe ..."
-                                {...register(
-                                  `mandamento${mandamento.id}.pergunta.${pergunta.id}.texto`
-                                )}
-                                className="w-full px-3 py-2 rounded-lg text-black"
-                              />
-                            )}
-                          </li>
+
+              {/* Lista de perguntas */}
+              {painelOpen.includes(mandamento.id) && (
+                <div>
+                  <ul className="w-11/12">
+                    {mandamento.perguntas.map((pergunta) => (
+                      <li key={pergunta.id} className="my-3">
+                        <div className="py-4 sm:px-10 flex flex-col gap-2 justify-between px-3 hover:bg-amber-950/20 rounded-lg">
+                          {/* Checkbox e Pergunta */}
+                          <label className="flex justify-between gap-5 w-full items-center cursor-pointer text-sm">
+                            <span className="flex-1">{pergunta.texto}</span>
+                            <input
+                              type="checkbox"
+                              {...register(
+                                `mandamento${mandamento.id}.pergunta${pergunta.id}.checked`
+                              )}
+                              className="h-5 w-5 rounded-md p-2"
+                            />
+                          </label>
+
+                          {/* Input para detalhes */}
+                          {watch(
+                            `mandamento${mandamento.id}.pergunta${pergunta.id}.checked`
+                          ) && (
+                            <input
+                              type="text"
+                              placeholder="Detalhe ..."
+                              maxLength={200}
+                              required={watch(
+                                `mandamento${mandamento.id}.pergunta${pergunta.id}.checked`
+                              )}
+                              {...register(
+                                `mandamento${mandamento.id}.pergunta${pergunta.id}.textoDetalhe`
+                              )}
+                              className="w-full px-3 py-2 rounded-lg text-black"
+                            />
+                          )}
                         </div>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           ))}
-          <input
-            type="submit"
-            value="Gerar exame"
-            className="px-4 py-2 bg-amber-950 rounded-full mb-10  mx-auto block"
-          />
+          <div className="w-fit flex  gap-4 px-4 py-2 bg-amber-950 rounded-full mt-8 mb-10 mx-auto">
+            <input type="submit" value="Preparar para confissão " />
+            <div className="flex items-center">
+              <FiDownload />
+            </div>
+          </div>
         </form>
       </FormProvider>
     </div>
