@@ -90,10 +90,10 @@ export const Lista = () => {
             <div key={mandamento.id} className="py-2">
               {/* Cabeçalho do mandamento */}
               <div
-                className="flex gap-8 justify-between items-center cursor-pointer text-amber-950 z-10"
+                className="flex gap-8 justify-between items-center cursor-pointer  text-amber-950 "
                 onClick={() => handleClick(mandamento.id)}
               >
-                <h2 className="sm:py-4 font-bold sm:text-lg ">
+                <h2 className="sm:py-4 font-bold sm:text-lg flex-1">
                   {mandamento.texto}
                 </h2>
                 <FiChevronDown
