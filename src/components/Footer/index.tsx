@@ -10,9 +10,9 @@ export function Footer() {
         <div>
           <Link
             href={"https://www.linkedin.com/in/emanuelbitencourt/"}
-            className="underline "
+            className="underline text-sm"
           >
-            Direitos Reservados: Bitenc
+            Feito por: EmanuelBitenc
           </Link>
         </div>
       </div>
