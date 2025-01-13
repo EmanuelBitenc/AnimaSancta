@@ -83,7 +83,7 @@ export const Lista = () => {
   };
 
   return (
-    <div className="w-10/12 sm:w-3/5 mx-auto select-none">
+    <div className="">
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {lista.map((mandamento) => (

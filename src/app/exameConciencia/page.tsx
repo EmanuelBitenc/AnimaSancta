@@ -1,8 +1,8 @@
 import "../globals.css";
-import Layout from "../layout";
 import { Lista } from "./listas";
 
 import { Metadata } from "next";
+import { Resumo } from "./resumo";
 
 export const metadata: Metadata = {
   title: "AnimaSancta - Exame de Consciência",
@@ -12,11 +12,14 @@ export const metadata: Metadata = {
 
 export default function ExameConciencia() {
   return (
-    <div className="">
-      <h1 className="text-3xl font-bold text-center py-10">
+    <div className="mx-auto">
+      <h1 className="text-3xl font-bold text-center pt-10 pb-2">
         Exame de Consciência
       </h1>
-      <Lista />
+      <Resumo />
+      <div className="w-10/12 sm:w-3/5 mx-auto  select-none">
+        <Lista />
+      </div>
     </div>
   );
 }
