@@ -93,7 +93,7 @@ export const Lista = () => {
                 className="flex gap-8 justify-between items-center cursor-pointer  text-amber-950 "
                 onClick={() => handleClick(mandamento.id)}
               >
-                <h2 className="sm:py-4 font-bold sm:text-lg flex-1">
+                <h2 className="sm:py-4 font-bold sm:text-xl flex-1">
                   {mandamento.texto}
                 </h2>
                 <FiChevronDown
