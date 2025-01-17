@@ -70,7 +70,7 @@ export const Lista = () => {
                 respostasComTexto.push({
                   mandamentoTexto: mandamento.texto,
                   perguntaTexto: pergunta.texto,
-                  textoDetalhe: textoDetalhe || "Sem detalhes fornecidos",
+                  textoDetalhe: textoDetalhe || "",
                 });
               }
             }

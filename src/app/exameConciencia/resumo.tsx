@@ -17,14 +17,14 @@ export const Resumo = () => {
         preparo para a confissão.
       </p>
 
-      <ol className="flex flex-col sm:flex-row mx-4 text-sm items-center py-4 font-semibold text-amber-950">
+      <ol className="flex flex-col sm:flex-row mx-4 text-sm items-center py-4 font-semibold text-amber-950 justify-between ">
         {resumo.map((item, index) => {
           return (
             <li
               key={index}
-              className="flex flex-col sm:flex-row  gap-2 items-center mr-2"
+              className="flex flex-col sm:flex-row items-center gap-4"
             >
-              <p className="sm:w-4/5"> {item}</p>
+              <p className="sm:w-4/5 text-center"> {item}</p>
 
               {index < resumo.length - 1 && (
                 <FiChevronRight
