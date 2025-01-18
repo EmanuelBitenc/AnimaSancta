@@ -10,32 +10,32 @@ export const metadata: Metadata = {
 
 export default function Oracoes() {
   return (
-    <div className="my-2">
+    <div>
       <TituloPage titulo="Orações" />
 
-      <div className="space-y-6 text-sm   sm:p-6 mx-5 sm:mx-auto sm:w-3/4">
-        <div className=" text-sm sm:text-lg text-center  mx-auto mb-10 bg-amber-950/20 rounded-lg p-5">
-          <p>
-            As orações a seguir foram pensadas para te ajudar a se preparar para
-            um bom exame de consciência. <br />
-            <br />
-            São momentos de reflexão e conexão com Deus, onde você pode pedir
-            luz para enxergar seus caminhos com clareza e força para se
-            transformar. Leia com calma, entregue seu coração e lembre-se: Deus
-            sempre está disposto a te acolher!
-          </p>
+      <div className="flex flex-col items-center gap-6 px-6   text-gray-800">
+        <div className="max-w-4xl bg-white p-6 rounded-lg shadow-md">
+          <div className=" text-sm sm:text-lg text-center  mx-auto mb-10 bg-amber-950/20 rounded-lg p-5">
+            <p>
+              As orações a seguir foram pensadas para te ajudar a se preparar
+              para um bom exame de consciência. <br />
+              <br />
+              São momentos de reflexão e conexão com Deus, onde você pode pedir
+              luz para enxergar seus caminhos com clareza e força para se
+              transformar. Leia com calma, entregue seu coração e lembre-se:
+              Deus sempre está disposto a te acolher!
+            </p>
+          </div>
+          {oracoes.map((oracao) => (
+            <div key={oracao.id} className="mb-5">
+              <h1 className="text-amber-950 font-semibold text-xl">
+                {oracao.titulo}
+              </h1>
+              <p>{oracao.oracao}</p>
+            </div>
+          ))}
         </div>
-        {oracoes.map((oracao) => (
-          <p key={oracao.id}>
-            <span className="text-amber-950 font-semibold text-xl">
-              {oracao.titulo}
-            </span>
-            <br />
-            {oracao.oracao}
-          </p>
-        ))}
       </div>
-
       <div>
         <EmConstrucao />
       </div>
