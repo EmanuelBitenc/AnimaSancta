@@ -16,19 +16,55 @@ export const lista: Mandamento[] = [
   {
     id: 1,
     mandamento: "primeiroMandamento",
-    texto: "1º Mandamento: Amar a Deus sobre todas as coisas",
+    texto: "1º Mandamento: Amarás a Deus sobre todas as coisas",
     perguntas: [
       {
         id: 1,
         pergunta: "primeiraPergunta",
         texto:
-          "Coloquei Deus em primeiro lugar na minha vida ou priorizei outras coisas como trabalho, dinheiro ou prazeres?",
+          "Tenho amado a Deus acima de tudo, colocando-O como prioridade em minha vida?",
         textoDetalhe: "",
       },
       {
         id: 2,
         pergunta: "segundaPergunta",
-        texto: "Rezei diariamente e busquei fortalecer minha fé?",
+        texto:
+          "Tenho confiado plenamente no amor e no poder de Deus, ou me desespero diante das dificuldades?",
+        textoDetalhe: "",
+      },
+      {
+        id: 3,
+        pergunta: "terceiraPergunta",
+        texto:
+          "Tenho praticado a superstição ou seguido práticas religiosas alheias ao cristianismo?",
+        textoDetalhe: "",
+      },
+      {
+        id: 4,
+        pergunta: "quartaPergunta",
+        texto:
+          "Tenho negligenciado minha vida de oração pessoal, familiar ou comunitária?",
+        textoDetalhe: "",
+      },
+      {
+        id: 5,
+        pergunta: "quintaPergunta",
+        texto:
+          "Tenho dedicado tempo para conhecer e estudar a fé cristã, ou me contento com um entendimento superficial?",
+        textoDetalhe: "",
+      },
+      {
+        id: 6,
+        pergunta: "sextaPergunta",
+        texto:
+          "Tenho usado os dons que Deus me deu para Sua glória ou para meu benefício egoísta?",
+        textoDetalhe: "",
+      },
+      {
+        id: 7,
+        pergunta: "setimaPergunta",
+        texto:
+          "Tenho me apegado mais às coisas materiais do que ao amor de Deus?",
         textoDetalhe: "",
       },
     ],
@@ -36,19 +72,33 @@ export const lista: Mandamento[] = [
   {
     id: 2,
     mandamento: "segundoMandamento",
-    texto: "2º Mandamento: Não tomar Seu Santo Nome em vão",
+    texto: "2º Mandamento: Não tomarás o nome de Deus em vão",
     perguntas: [
       {
-        id: 3,
+        id: 8,
         pergunta: "primeiraPergunta",
         texto:
-          "Usei o nome de Deus, de Jesus ou dos santos de forma desrespeitosa ou em vão?",
+          "Usei o nome de Deus de forma desrespeitosa, em blasfêmias ou juramentos falsos?",
         textoDetalhe: "",
       },
       {
-        id: 4,
+        id: 9,
         pergunta: "segundaPergunta",
-        texto: "Jurei falsamente ou fiz promessas sem intenção de cumpri-las?",
+        texto: "Fui irreverente ao tratar as coisas sagradas?",
+        textoDetalhe: "",
+      },
+      {
+        id: 10,
+        pergunta: "terceiraPergunta",
+        texto:
+          "Recorri a Deus apenas por interesse próprio ou em momentos de necessidade, esquecendo-me de agradecê-Lo?",
+        textoDetalhe: "",
+      },
+      {
+        id: 11,
+        pergunta: "quartaPergunta",
+        texto:
+          "Participei de conversas ou ações que ridicularizam a fé ou o nome de Deus?",
         textoDetalhe: "",
       },
     ],
@@ -56,20 +106,33 @@ export const lista: Mandamento[] = [
   {
     id: 3,
     mandamento: "terceiroMandamento",
-    texto: "3º Mandamento: Santificar os domingos e festas",
+    texto: "3º Mandamento: Santificarás o dia do Senhor",
     perguntas: [
       {
-        id: 5,
+        id: 12,
         pergunta: "primeiraPergunta",
-        texto:
-          "Fui à missa aos domingos e nas festas obrigatórias ou negligenciei esse dever?",
+        texto: "Tenho participado da Missa dominical com atenção e devoção?",
         textoDetalhe: "",
       },
       {
-        id: 6,
+        id: 13,
         pergunta: "segundaPergunta",
         texto:
-          "Descansei adequadamente no domingo e fiz dele um dia de oração e descanso?",
+          "Tenho evitado trabalhos desnecessários no domingo, dedicando o dia ao descanso e ao Senhor?",
+        textoDetalhe: "",
+      },
+      {
+        id: 14,
+        pergunta: "terceiraPergunta",
+        texto:
+          "Tenho usado o domingo para estar com minha família e fortalecer os laços espirituais?",
+        textoDetalhe: "",
+      },
+      {
+        id: 15,
+        pergunta: "quartaPergunta",
+        texto:
+          "Tenho consagrado tempo suficiente à adoração eucarística e à oração?",
         textoDetalhe: "",
       },
     ],
@@ -77,19 +140,33 @@ export const lista: Mandamento[] = [
   {
     id: 4,
     mandamento: "quartoMandamento",
-    texto: "4º Mandamento: Honrar pai e mãe",
+    texto: "4º Mandamento: Honrarás pai e mãe",
     perguntas: [
       {
-        id: 7,
+        id: 16,
         pergunta: "primeiraPergunta",
-        texto: "Respeitei meus pais e cuidei deles quando necessário?",
+        texto:
+          "Tenho honrado e respeitado meus pais, cuidando deles em suas necessidades?",
         textoDetalhe: "",
       },
       {
-        id: 8,
+        id: 17,
         pergunta: "segundaPergunta",
         texto:
-          "Fui desobediente ou rebelde contra a autoridade dos meus pais ou responsáveis?",
+          "Como pai/mãe, tenho educado meus filhos na fé e dado bom exemplo de vida cristã?",
+        textoDetalhe: "",
+      },
+      {
+        id: 18,
+        pergunta: "terceiraPergunta",
+        texto: "Tenho cumprido com paciência e amor meus deveres familiares?",
+        textoDetalhe: "",
+      },
+      {
+        id: 19,
+        pergunta: "quartaPergunta",
+        texto:
+          "Tenho cultivado a reconciliação e o espírito de serviço dentro da minha família?",
         textoDetalhe: "",
       },
     ],
@@ -97,20 +174,44 @@ export const lista: Mandamento[] = [
   {
     id: 5,
     mandamento: "quintoMandamento",
-    texto: "5º Mandamento: Não matar",
+    texto: "5º Mandamento: Não matarás",
     perguntas: [
       {
-        id: 9,
+        id: 20,
         pergunta: "primeiraPergunta",
-        texto:
-          "Desejei ou pensei em fazer mal a alguém, inclusive com ódio ou vingança?",
+        texto: "Tenho causado dano físico ou moral a outras pessoas?",
         textoDetalhe: "",
       },
       {
-        id: 10,
+        id: 21,
         pergunta: "segundaPergunta",
         texto:
-          "Fui imprudente ao dirigir ou em outras situações que colocaram em risco minha vida ou a de outros?",
+          "Tenho alimentado sentimentos de ódio, rancor ou desejo de vingança contra alguém?",
+        textoDetalhe: "",
+      },
+      {
+        id: 22,
+        pergunta: "terceiraPergunta",
+        texto: "Tenho perdoado as ofensas recebidas, ou guardo mágoas?",
+        textoDetalhe: "",
+      },
+      {
+        id: 23,
+        pergunta: "quartaPergunta",
+        texto: "Tenho cuidado da minha saúde e evitado vícios prejudiciais?",
+        textoDetalhe: "",
+      },
+      {
+        id: 24,
+        pergunta: "quintaPergunta",
+        texto: "Induzi ou procurei o aborto de alguma forma?",
+        textoDetalhe: "",
+      },
+      {
+        id: 25,
+        pergunta: "sextaPergunta",
+        texto:
+          "Participei de negócios que promovem o uso de drogas ou violência?",
         textoDetalhe: "",
       },
     ],
@@ -118,19 +219,33 @@ export const lista: Mandamento[] = [
   {
     id: 6,
     mandamento: "sextoMandamento",
-    texto: "6º Mandamento: Não cometer adultério",
+    texto: "6º Mandamento: Não pecarás contra a castidade",
     perguntas: [
       {
-        id: 11,
+        id: 26,
         pergunta: "primeiraPergunta",
-        texto: "Fui infiel ao meu cônjuge ou cometi pensamentos impuros?",
+        texto: "Tenho mantido pensamentos, palavras ou ações impuras?",
         textoDetalhe: "",
       },
       {
-        id: 12,
+        id: 27,
         pergunta: "segundaPergunta",
         texto:
-          "Fui desrespeitoso no trato com as pessoas, provocando escândalos ou comportamentos imorais?",
+          "Tenho consumido material pornográfico ou assistido conteúdos que banalizam a sexualidade?",
+        textoDetalhe: "",
+      },
+      {
+        id: 28,
+        pergunta: "terceiraPergunta",
+        texto:
+          "Tenho respeitado a dignidade do outro no contexto do relacionamento?",
+        textoDetalhe: "",
+      },
+      {
+        id: 29,
+        pergunta: "quartaPergunta",
+        texto:
+          "Tenho caído em pecados como masturbação, fornicação ou adultério?",
         textoDetalhe: "",
       },
     ],
@@ -138,18 +253,33 @@ export const lista: Mandamento[] = [
   {
     id: 7,
     mandamento: "setimoMandamento",
-    texto: "7º Mandamento: Não roubar",
+    texto: "7º Mandamento: Não roubarás",
     perguntas: [
       {
-        id: 13,
+        id: 30,
         pergunta: "primeiraPergunta",
-        texto: "Roubei ou tomei algo que não me pertencia?",
+        texto: "Fui honesto no meu trabalho, ou cometi fraudes e roubos?",
         textoDetalhe: "",
       },
       {
-        id: 14,
+        id: 31,
         pergunta: "segundaPergunta",
-        texto: "Fui injusto nos meus negócios ou em minhas finanças?",
+        texto:
+          "Usei indevidamente os recursos alheios ou os recursos da criação?",
+        textoDetalhe: "",
+      },
+      {
+        id: 32,
+        pergunta: "terceiraPergunta",
+        texto:
+          "Fui justo em minhas relações com subordinados, empregadores ou colegas?",
+        textoDetalhe: "",
+      },
+      {
+        id: 33,
+        pergunta: "quartaPergunta",
+        texto:
+          "Tenho contribuído para o bem comum ou agido apenas em benefício próprio?",
         textoDetalhe: "",
       },
     ],
@@ -157,18 +287,30 @@ export const lista: Mandamento[] = [
   {
     id: 8,
     mandamento: "oitavoMandamento",
-    texto: "8º Mandamento: Não levantar falso testemunho",
+    texto: "8º Mandamento: Não levantarás falso testemunho",
     perguntas: [
       {
         id: 15,
         pergunta: "primeiraPergunta",
-        texto: "Falei mentiras sobre alguém ou espalhei boatos prejudiciais?",
+        texto: "Disse mentiras ou escondi a verdade para me beneficiar?",
         textoDetalhe: "",
       },
       {
         id: 16,
         pergunta: "segundaPergunta",
-        texto: "Fui desonesto ou omiti a verdade em situações importantes?",
+        texto: "Caluniei ou difamei alguém, causando danos à sua reputação?",
+        textoDetalhe: "",
+      },
+      {
+        id: 17,
+        pergunta: "terceiraPergunta",
+        texto: "Fiz julgamentos injustos ou temerários sobre outras pessoas?",
+        textoDetalhe: "",
+      },
+      {
+        id: 18,
+        pergunta: "quartaPergunta",
+        texto: "Violei segredos confiados a mim?",
         textoDetalhe: "",
       },
     ],
@@ -176,19 +318,26 @@ export const lista: Mandamento[] = [
   {
     id: 9,
     mandamento: "nonoMandamento",
-    texto: "9º Mandamento: Não cobiçar a mulher do próximo",
+    texto: "9º Mandamento: Não desejarás a mulher do próximo",
     perguntas: [
       {
-        id: 17,
+        id: 19,
         pergunta: "primeiraPergunta",
-        texto: "Desejei ou cobicei a esposa de outra pessoa?",
+        texto:
+          "Cultivei pensamentos ou desejos impuros em relação a pessoas comprometidas?",
         textoDetalhe: "",
       },
       {
-        id: 18,
+        id: 20,
         pergunta: "segundaPergunta",
+        texto: "Respeitei a dignidade das pessoas com quem me relacionei?",
+        textoDetalhe: "",
+      },
+      {
+        id: 21,
+        pergunta: "terceiraPergunta",
         texto:
-          "Fui desrespeitoso com o casamento de outros ou contribui para destruição de uma família?",
+          "Tenho sido fiel ao meu cônjuge ou às promessas de castidade feitas a Deus?",
         textoDetalhe: "",
       },
     ],
@@ -196,19 +345,27 @@ export const lista: Mandamento[] = [
   {
     id: 10,
     mandamento: "decimoMandamento",
-    texto: "10º Mandamento: Não cobiçar os bens alheios",
+    texto: "10º Mandamento: Não cobiçarás os bens do próximo",
     perguntas: [
       {
-        id: 19,
+        id: 22,
         pergunta: "primeiraPergunta",
-        texto: "Cobicei bens materiais de outra pessoa de forma invejosa?",
+        texto:
+          "Tenho invejado os bens materiais ou a posição social de outras pessoas?",
         textoDetalhe: "",
       },
       {
-        id: 20,
+        id: 23,
         pergunta: "segundaPergunta",
         texto:
-          "Fui ganancioso ou me deixei dominar pela busca de riquezas e bens materiais?",
+          "Desejei algo de forma desordenada, esquecendo-me de agradecer pelo que já possuo?",
+        textoDetalhe: "",
+      },
+      {
+        id: 24,
+        pergunta: "terceiraPergunta",
+        texto:
+          "Tenho cultivado um coração generoso, compartilhando meus bens com os necessitados?",
         textoDetalhe: "",
       },
     ],
