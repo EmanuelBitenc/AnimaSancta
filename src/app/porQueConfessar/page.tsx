@@ -3,7 +3,7 @@ import "@/app/globals.css";
 
 export default function PorQueConfessar() {
   return (
-    <div>
+    <div className="mb-5">
       <div>
         <TituloPage titulo="Por que confessar?" />
       </div>

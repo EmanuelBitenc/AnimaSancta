@@ -23,7 +23,7 @@ export default function EmConstrucao() {
             <Link href={"/exameConciencia"}> Exame de Consciência</Link>
           </span>
         </h1>
-        <div className="sm:w-2/4 mx-auto p-4  rounded-lg flex items-center">
+        <div className="sm:w-2/4 mx-auto p-4  rounded-lg flex items-center text-center">
           <p className="mx-auto  ">
             Envie sugestôes e dicas para melhorar a página para: <br />
             <span className="underline">emanuelbitenc@gmail.com</span>
