@@ -39,6 +39,9 @@ export const Lista = () => {
 
   const onSubmit = (data: FormularioData) => {
     const respostas = obterTexto(data);
+    if (respostas.length === 0) {
+      return;
+    }
     gerarPdf(respostas);
   };
 
@@ -87,7 +90,7 @@ export const Lista = () => {
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {lista.map((mandamento) => (
-            <div key={mandamento.id} className="py-2">
+            <div key={mandamento.id} className="py-3">
               {/* Cabeçalho do mandamento */}
               <div
                 className="flex gap-8 justify-between items-center cursor-pointer  text-amber-950 "
