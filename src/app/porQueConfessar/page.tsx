@@ -7,9 +7,9 @@ export default function PorQueConfessar() {
       <div>
         <TituloPage titulo="Por que confessar?" />
       </div>
-      <div className="flex flex-col items-center gap-6 px-6   text-gray-800">
-        <div className=" sm:max-w-4xl bg-white p-4 sm:p-6 rounded-lg shadow-md">
-          <div className=" text-sm sm:text-lg text-center  mx-auto mb-10 bg-amber-950/20 rounded-lg p-5">
+      <div className="flex flex-col items-center gap-6 px-6 ">
+        <div className=" sm:max-w-4xl bg-white p-4 sm:p-6 rounded-lg shadow-md text-gray-800">
+          <div className=" text-sm sm:text-lg text-center  mx-auto bg-amber-950/20 rounded-lg py-5 px-2 ">
             <p className=" text-sm sm:text-lg leading-relaxed">
               O sacramento da confissão, também conhecido como Reconciliação ou
               Penitência, é um dos sete sacramentos da Igreja Católica

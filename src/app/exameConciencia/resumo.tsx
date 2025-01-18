@@ -10,8 +10,8 @@ export const Resumo = () => {
 
   return (
     <div className="px-6 pb-4">
-      <div className="flex flex-col gap-2 text-sm sm:text-lg text-center  max-w-4xl bg-white  mx-auto  rounded-lg shadow-md  px-6 p-5 text-gray-800">
-        <div className=" text-sm sm:text-lg text-center  mx-auto bg-amber-950/20 rounded-lg p-5">
+      <div className="flex flex-col gap-2 text-sm sm:text-lg text-center  sm:max-w-4xl bg-white  mx-auto  rounded-lg shadow-md p-4 sm:p-6 text-gray-800">
+        <div className=" text-sm sm:text-lg text-center  mx-auto bg-amber-950/20 rounded-lg py-5 px-2">
           <p>
             Fique tranquilo: nenhum dado é armazenado. Tudo é completamente
             privado. Paz e Bem!

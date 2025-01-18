@@ -4,6 +4,7 @@ import "./globals.css";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import TituloPage from "@/components/tituloPage";
+import EmConstrucao from "@/components/emConstrucao";
 
 interface FormData {
   dicas: string;
@@ -22,9 +23,9 @@ export default function Home() {
   };
 
   return (
-    <div className="pb-10 items-center  flex flex-col px-6 ">
+    <div className="items-center  flex flex-col px-6 ">
       <TituloPage titulo="Seja bem-vindo " />
-      <div className="max-w-4xl bg-white p-6 rounded-lg shadow-md text-gray-800">
+      <div className="sm:max-w-4xl bg-white p-4 sm:p-6 rounded-lg shadow-md text-gray-800">
         <div className="flex flex-col gap-4 sm:gap-10 text-sm sm:text-lg text-center mx-auto bg-amber-950/20 rounded-lg p-2 sm:p-5">
           <p>
             Esta ferramenta foi desenvolvida para ajudar você a realizar seu
@@ -52,6 +53,10 @@ export default function Home() {
             esquecer nenhum detalhe importante.
           </p>
         </div>
+      </div>
+
+      <div>
+        <EmConstrucao />
       </div>
     </div>
   );
