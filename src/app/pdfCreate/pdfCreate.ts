@@ -31,7 +31,8 @@ export const gerarPdf = (respostas: RespostaProps[]) => {
   const agrupado = agruparPorMandamento(respostas);
   const doc = new jsPDF({});
 
-  const containerWidth = 180; //largura do container
+  const containerWidth = 180; // Largura do texto
+  const pageHeight = doc.internal.pageSize.height;
 
   function getTextWidth(text: string) {
     const larguraTexto = doc.getTextWidth(text);
@@ -48,68 +49,70 @@ export const gerarPdf = (respostas: RespostaProps[]) => {
   doc.addFont("PoppinsRegular.ttf", "PoppinsRegular", "normal");
   doc.addFont("Tsukimi.ttf", "Tsukimi", "normal");
 
-  let y = 20; // Coordenada Y inicial no PDF
+  let y = 20;
 
-  // Usar a fonte "Tsukimi"
+  // Cabeçalho
   doc.setFont("Tsukimi", "normal");
+  doc.setFontSize(18);
+  doc.text("AnimaSancta", getTextWidth("AnimaSancta"), y);
 
-  // Adiciona o nome do logo
-
-  doc.setFontSize(16);
-  doc.text("AnimaSancta\n", getTextWidth("AnimaSancta"), y);
-
-  // Usar a fonte "PoppinsRegular"
   doc.setFont("PoppinsRegular", "normal");
   y += 10;
+  doc.setFontSize(16);
+  doc.text("Exame de Consciência", getTextWidth("Exame de Consciência"), y);
 
-  doc.setFontSize(14);
-  doc.text("Exame de Consciência\n", getTextWidth("Exame de Consciência"), y);
-  y += 20; // Ajusta o Y após o logo
+  y += 10;
+  doc.setLineWidth(0.5);
 
+  doc.setDrawColor(200, 200, 200);
+  doc.line(10, y - 5, 200, y - 5); // Linha separadora
+  y += 2;
+  // Conteúdo principal
   Object.entries(agrupado).forEach(([mandamentoTexto, perguntas]) => {
+    // Título do Mandamento
     doc.setFontSize(14);
+    doc.setTextColor(54, 21, 3); // Cor texto
     doc.text(`${mandamentoTexto}`, 10, y);
     y += 10;
 
+    // Perguntas e Detalhes
     doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0); // Preto
     perguntas.forEach((pergunta) => {
-      // Divide o texto das perguntas para caber dentro do "container"
       const perguntaTexto = `• ${pergunta.perguntaTexto}`;
       const textoDetalhe = `- ${pergunta.textoDetalhe}`;
 
+      // Divide a pergunta
       const linhasPergunta: string[] = doc.splitTextToSize(
         perguntaTexto,
         containerWidth
       );
-
-      // Adiciona a pergunta no PDF
       linhasPergunta.forEach((linha) => {
         doc.text(linha, 10, y);
-        y += 10;
+        y += 8;
       });
-      y += 2;
 
-      const linhas: string[] = doc.splitTextToSize(
+      const linhasDetalhe: string[] = doc.splitTextToSize(
         textoDetalhe,
-        containerWidth
+        containerWidth - 10
       );
-
-      // Adiciona cada linha dentro do "container" com a quebra de linha automática
-      linhas.forEach((linha) => {
+      linhasDetalhe.forEach((linha) => {
         doc.text(linha, 20, y);
-        y += 10;
+        y += 8;
 
-        // Quebra de página se Y exceder o limite
-        if (y > 280) {
+        if (y > pageHeight - 20) {
           doc.addPage();
           y = 10;
         }
       });
 
-      y += 1; // Espaçamento entre as perguntas
+      y += 2; // Espaçamento entre perguntas
     });
 
-    y += 2; // Espaçamento entre mandamentos
+    y += 4; // Espaçamento entre mandamentos
+    doc.setDrawColor(200, 200, 200); // Cinza claro
+    doc.line(10, y - 4, 200, y - 4); // Linha separadora entre mandamentos
+    y += 4;
   });
 
   doc.save("exameDeConsciencia.pdf");
