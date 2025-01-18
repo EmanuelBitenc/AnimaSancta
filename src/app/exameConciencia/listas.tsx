@@ -153,7 +153,7 @@ export const Lista = () => {
           <div className=" mt-8 mb-10 flex flex-col gap-4 items-center text-center mx-4">
             <p className="lg:w-3/4">
               O botão a seguir irá agrupar suas respostas em um arquivo pdf,
-              para que você levar consigo seu exame de conciência para a
+              Para que você leve contigo seu exame de conciência para a
               confissão.
             </p>
             <div className="w-fit flex  gap-4 px-4 py-2 bg-amber-950 rounded-full  mx-auto">
