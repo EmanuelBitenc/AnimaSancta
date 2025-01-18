@@ -11,10 +11,8 @@ export const Resumo = () => {
   return (
     <div className="flex flex-col gap-2 text-sm sm:text-lg text-center  w-10/12 max-w-screen-lg sm:w-5/5 mx-auto my-4 bg-amber-950/20 rounded-lg p-5">
       <p>
-        Seja bem-vindo!
-        <br /> Esta ferramenta foi desenvolvida para ajudar você a realizar seu
-        exame de consciência de forma prática e organizada, facilitando o
-        preparo para a confissão.
+        Fique tranquilo: nenhum dado é armazenado. Tudo é completamente privado.
+        Paz e Bem!
       </p>
 
       <ol className="flex flex-col sm:flex-row mx-4 text-sm items-center py-4 font-semibold text-amber-950 justify-between ">
@@ -35,11 +33,6 @@ export const Resumo = () => {
           );
         })}
       </ol>
-
-      <p>
-        Fique tranquilo: nenhum dado é armazenado. Tudo é completamente privado.
-        Paz e Bem!
-      </p>
     </div>
   );
 };
