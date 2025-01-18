@@ -86,17 +86,17 @@ export const Lista = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
           {lista.map((mandamento) => (
-            <div key={mandamento.id} className="py-3">
+            <div key={mandamento.id} className="py-3 sm:max-w-4xl mx-auto ">
               {/* Cabeçalho do mandamento */}
               <div
                 className="flex gap-8 justify-between items-center cursor-pointer  text-amber-950 "
                 onClick={() => handleClick(mandamento.id)}
               >
-                <h2 className="sm:py-4 font-bold sm:text-xl flex-1">
+                <h2 className="sm:py-4 font-bold sm:text-xl flex-1 ">
                   {mandamento.texto}
                 </h2>
                 <FiChevronDown
@@ -133,9 +133,6 @@ export const Lista = () => {
                               type="text"
                               placeholder="Detalhe ..."
                               maxLength={200}
-                              required={watch(
-                                `mandamento${mandamento.id}.pergunta${pergunta.id}.checked`
-                              )}
                               {...register(
                                 `mandamento${mandamento.id}.pergunta${pergunta.id}.textoDetalhe`
                               )}

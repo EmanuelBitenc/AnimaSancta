@@ -7,14 +7,14 @@ export default function EmConstrucao() {
       <div className=" mx-auto p-4  rounded-lg flex flex-col gap-2 items-center text-center  text-amber-950">
         <h1 className="mx-auto my-auto ">Página em construção...</h1>
         <p className="mx-auto ">
-          Envie sugestôes e dicas para melhorar a página para: <br />
+          Envie Sugestões e dicas para melhorar a página para: <br />
           <span className="underline text-white/80">
             emanuelbitenc@gmail.com
           </span>
         </p>
         Com o tema:
         <br />
-        <p className="text-white/80"> "Sugestôes AnimaSancta"</p>
+        <p className="text-white/80"> "Sugestões AnimaSancta"</p>
       </div>
     </div>
   );
