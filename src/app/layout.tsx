@@ -5,7 +5,7 @@ import iconPage from "@/app/assets/imgs/iconPage.png";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AnimaSancta - Home",
+  title: "AnimaSancta - Exame de Consciência e Confissão Católica",
   description:
     "AnimaSancta é uma plataforma dedicada a ajudar fiéis católicos a se prepararem para o sacramento da confissão, oferecendo um guia prático e reflexivo baseado nos Dez Mandamentos.",
   keywords:
@@ -43,7 +43,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={` min-h-[calc(100vh-500px)]  bg-gradient-to-l from-[#a28c81] via-[#9a7e6f] to-[#8e6d59]" `}
+        className={`   bg-gradient-to-l from-[#8e6d59] via-[#977d70] to-[#9a7e6f]`}
         suppressHydrationWarning
       >
         <Header />
