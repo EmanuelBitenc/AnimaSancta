@@ -25,13 +25,13 @@ export default function EmConstrucao() {
         </h1>
         <div className="sm:w-2/4 mx-auto p-4 bg-amber-950 rounded-lg flex items-center">
           <p className="mx-auto  ">
-            Nos envie sua sugestão e dicas para melhorar a página:{" "}
-            <Link
-              href={"https://www.linkedin.com/in/emanuelbitencourt/"}
-              className="underline "
-            >
-              BitencTech
-            </Link>
+            Envie sugestôes e dicas para melhorar a página para: <br />
+            <span className="underline">emanuelbitenc@gmail.com</span>
+            <br />
+            <br />
+            Com o tema:
+            <br />
+            "Sugestôes AnimaSancta"
           </p>
         </div>
       </div>
