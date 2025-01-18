@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div className="pb-10">
       <TituloPage titulo="Seja bem-vindo " />
-      <div className="flex flex-col gap-10 text-sm sm:text-lg text-center  w-10/12 max-w-screen-lg sm:w-5/5 mx-auto my-4 bg-amber-950/20 rounded-lg p-2 sm:p-5">
+      <div className="flex flex-col gap-4 sm:gap-10 text-sm sm:text-lg text-center  w-10/12 max-w-screen-lg sm:w-5/5 mx-auto my-4 bg-amber-950/20 rounded-lg p-2 sm:p-5">
         <p>
           Esta ferramenta foi desenvolvida para ajudar você a realizar seu exame
           de consciência de forma prática e organizada, facilitando o preparo
