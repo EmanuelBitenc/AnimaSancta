@@ -8,7 +8,7 @@ export default function PorQueConfessar() {
         <TituloPage titulo="Por que confessar?" />
       </div>
       <div className="flex flex-col items-center gap-6 px-6   text-gray-800">
-        <div className="max-w-4xl bg-white p-6 rounded-lg shadow-md">
+        <div className=" sm:max-w-4xl bg-white p-4 sm:p-6 rounded-lg shadow-md">
           <div className=" text-sm sm:text-lg text-center  mx-auto mb-10 bg-amber-950/20 rounded-lg p-5">
             <p className=" text-sm sm:text-lg leading-relaxed">
               O sacramento da confissão, também conhecido como Reconciliação ou
