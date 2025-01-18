@@ -7,20 +7,20 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AnimaSancta - Home",
   description:
-    "Página católica voltada a ajudar na aproximação com a doutrina, proporcionando um guia para fazer o Exame de Consciência.",
+    "AnimaSancta é uma plataforma dedicada a ajudar fiéis católicos a se prepararem para o sacramento da confissão, oferecendo um guia prático e reflexivo baseado nos Dez Mandamentos.",
   keywords:
-    "exame de consciência, sacramento da confissão, mandamentos, católico, reflexão",
+    "AnimaSancta, exame de consciência católico, sacramento da confissão, mandamentos, guia de confissão, reflexão espiritual, preparação para confissão, fé católica, vida espiritual, doutrina católica",
   robots: "index, follow",
   openGraph: {
-    title: "AnimaSancta",
+    title: "AnimaSancta - Exame de Consciência",
     description:
-      "Página católica voltada a ajudar na aproximação com a doutrina, proporcionando um guia para fazer o Exame de Consciência.",
+      "A ferramenta perfeita para católicos que desejam refletir, organizar seus pensamentos e se preparar para o sacramento da confissão com base na doutrina da Igreja.",
     images: [
       {
         url: "https://i1.wp.com/rainhadosceus.com.br/wp-content/uploads/2020/08/Sagrada-Eucaristia.jpg?fit=750%2C410&ssl=1",
-        width: 800,
-        height: 600,
-        alt: "AnimaSancta",
+        width: 1200,
+        height: 630,
+        alt: "AnimaSancta - Sagrada Eucaristia",
       },
     ],
   },
