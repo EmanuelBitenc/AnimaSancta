@@ -41,6 +41,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Tsukimi+Rounded&display=swap"
           rel="stylesheet"
         />
+        <meta name="google-adsense-account" content="ca-pub-7478194700273945" />
       </head>
       <body
         className={`   bg-gradient-to-l from-[#8e6d59] via-[#977d70] to-[#9a7e6f]`}
