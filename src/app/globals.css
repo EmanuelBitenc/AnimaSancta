@@ -42,3 +42,18 @@ body {
   max-height: 500px;
   opacity: 1;
 }
+
+.containerPanel {
+  @apply flex flex-col items-center gap-6 px-6;
+}
+
+.containerWhite {
+  @apply sm:max-w-7xl bg-white p-4 sm:py-10 lg:px-52 rounded-lg shadow-md text-gray-800 mb-14;
+}
+.containerGray {
+  @apply text-sm sm:text-lg text-center  mx-auto bg-amber-950/20 rounded-lg py-5 px-2;
+}
+
+.liturgiaDiaria-itens {
+  @apply mt-4 flex flex-col;
+}

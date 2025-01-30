@@ -13,9 +13,9 @@ export default function Oracoes() {
     <div>
       <TituloPage titulo="Orações" />
 
-      <div className="flex flex-col items-center gap-6 px-6   text-gray-800">
-        <div className=" sm:max-w-4xl bg-white p-4 sm:p-6 rounded-lg shadow-md">
-          <div className="text-sm sm:text-lg text-center  mx-auto bg-amber-950/20 rounded-lg p-5">
+      <div className="flex flex-col items-center gap-6 px-6">
+        <div className="containerWhite">
+          <div className="containerGray ">
             <p>
               As orações a seguir foram pensadas para te ajudar a se preparar
               para um bom exame de consciência. <br />
