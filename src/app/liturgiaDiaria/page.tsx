@@ -23,7 +23,12 @@ export default function LiturgiaDiaria() {
     fetchLiturgia();
   }, []);
 
-  if (!data) return <p>Carregando...</p>;
+  if (!data)
+    return (
+      <p className="text-center text-amber-950 font-bold text-lg my-4">
+        Carregando...
+      </p>
+    );
   return (
     <div className="containerPanel">
       <TituloPage titulo="Liturgia Diária" />
