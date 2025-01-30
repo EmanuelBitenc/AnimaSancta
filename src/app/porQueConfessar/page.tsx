@@ -1,5 +1,10 @@
 import TituloPage from "@/components/tituloPage";
 import "@/app/globals.css";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AnimaSancta - Confessar",
+};
 
 export default function PorQueConfessar() {
   return (

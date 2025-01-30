@@ -12,15 +12,6 @@ interface FormData {
 
 export default function Home() {
   const methods = useForm<FormData>();
-  const { register, handleSubmit, watch } = methods;
-
-  const onSubmit = (data: FormData) => {
-    const subject = encodeURIComponent("Sugestão para melhorar a página");
-    const body = encodeURIComponent(`Sugestão recebida:\n\n${data.dicas}`);
-    const mailtoLink = `mailto:emanuelmagalhaes.bi@gmail.com?subject=${subject}&body=${body}`;
-
-    window.location.href = mailtoLink;
-  };
 
   return (
     <div>

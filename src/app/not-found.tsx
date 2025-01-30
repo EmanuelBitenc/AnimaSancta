@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AnimaSancta - Pagina não encontrada",
+  title: "AnimaSancta - 404",
 };
 
 export default function NotFound() {

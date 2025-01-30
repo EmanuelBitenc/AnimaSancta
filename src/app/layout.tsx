@@ -5,7 +5,7 @@ import iconPage from "@/app/assets/imgs/iconPage.png";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AnimaSancta - Exame de Consciência e Confissão Católica",
+  title: "AnimaSancta",
   description:
     "AnimaSancta é uma plataforma dedicada a ajudar fiéis católicos a se prepararem para o sacramento da confissão, oferecendo um guia prático e reflexivo baseado nos Dez Mandamentos.",
   keywords:

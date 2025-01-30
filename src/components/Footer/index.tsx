@@ -10,7 +10,8 @@ export function Footer() {
         <div>
           <Link
             href={"https://www.linkedin.com/in/emanuelbitencourt/"}
-            className="underline text-sm"
+            target="_blank"
+            className="text-sm"
           >
             Feito por: BitencTech
           </Link>
