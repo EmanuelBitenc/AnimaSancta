@@ -42,7 +42,7 @@ export default function Home() {
                 {" "}
                 <Link href={"/liturgiaDiaria"}> Liturgia Diária</Link>
               </span>{" "}
-              Acompanhando a Liturgia do Dia de Hoje e mergulhe nas orações,
+              , acompanhando a Liturgia do Dia de Hoje e mergulhe nas orações,
               leituras e reflexões que nos ajudam a viver e crescer na fé. A
               Liturgia Diária é uma oportunidade para se conectar mais
               profundamente com a Palavra de Deus e com os ensinamentos da
