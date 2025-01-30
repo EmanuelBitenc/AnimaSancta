@@ -28,13 +28,27 @@ export default function Home() {
 
       <div className="flex flex-col items-center gap-6 px-6 ">
         <div className="containerWhite">
-          <div className="flex flex-col gap-4 sm:gap-10 text-sm sm:text-lg text-center mx-auto bg-amber-950/20 rounded-lg p-2 sm:p-5">
-            <p>
+          <div className="flex flex-col gap-4 sm:gap-10 text-sm sm:text-lg text-pretty mx-auto bg-amber-950/20 rounded-lg p-2 sm:p-5">
+            <p className="text-center">
               Esta ferramenta foi desenvolvida para ajudar você a realizar seu
               exame de consciência de forma prática e organizada, facilitando o
               preparo para a confissão.
             </p>
-            <p>Acessando o menu de navegação, você encontrará opções como</p>
+            <p className="text-center">
+              Acessando o menu de navegação, você encontrará opções como
+            </p>
+            <p>
+              <span className="underline text-amber-950 font-bold">
+                {" "}
+                <Link href={"/liturgiaDiaria"}> Liturgia Diária</Link>
+              </span>{" "}
+              Acompanhando a Liturgia do Dia de Hoje e mergulhe nas orações,
+              leituras e reflexões que nos ajudam a viver e crescer na fé. A
+              Liturgia Diária é uma oportunidade para se conectar mais
+              profundamente com a Palavra de Deus e com os ensinamentos da
+              Igreja, oferecendo momentos de oração e meditação que fortalecem o
+              espírito e renovam a nossa caminhada cristã.
+            </p>
             <p>
               <span className="underline text-amber-950 font-bold">
                 {" "}
