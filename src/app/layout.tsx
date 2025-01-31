@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import iconPage from "@/app/assets/imgs/iconPage.png";
 
 import { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "AnimaSancta",
@@ -49,6 +50,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
