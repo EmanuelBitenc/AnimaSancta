@@ -1,6 +1,5 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import iconPage from "@/app/assets/imgs/iconPage.png";
 
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
       "A ferramenta perfeita para católicos que desejam refletir, organizar seus pensamentos e se preparar para o sacramento da confissão com base na doutrina da Igreja.",
     images: [
       {
-        url: "https://i1.wp.com/rainhadosceus.com.br/wp-content/uploads/2020/08/Sagrada-Eucaristia.jpg?fit=750%2C410&ssl=1",
+        url: "/Sagrada-Eucaristia.png",
         width: 1200,
         height: 630,
         alt: "AnimaSancta - Sagrada Eucaristia",
@@ -50,7 +49,8 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Header />
-        {children} <SpeedInsights />
+        {children}
+        <SpeedInsights />
         <Analytics />
         <Footer />
       </body>
