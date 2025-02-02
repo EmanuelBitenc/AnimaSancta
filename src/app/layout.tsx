@@ -4,6 +4,7 @@ import iconPage from "@/app/assets/imgs/iconPage.png";
 
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "AnimaSancta",
@@ -49,7 +50,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Header />
-        {children}
+        {children} <SpeedInsights />
         <Analytics />
         <Footer />
       </body>
