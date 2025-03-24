@@ -1,5 +1,5 @@
 import { jsPDF } from "jspdf";
-import { RespostaProps } from "../exameConciencia/listas";
+import { RespostaProps } from "../exameConsciencia/listas";
 import { PoppinsRegular } from "../assets/fonts/PoppinsRegular";
 import { Tsukimi } from "../assets/fonts/TsukimiRounded";
 

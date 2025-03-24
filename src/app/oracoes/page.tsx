@@ -13,7 +13,7 @@ export default function Oracoes() {
     <div>
       <TituloPage titulo="Orações" />
 
-      <div className="flex flex-col items-center gap-6 px-6">
+      <div className="containerPanel">
         <div className="containerWhite">
           <div className="containerGray ">
             <p>
