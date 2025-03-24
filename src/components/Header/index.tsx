@@ -10,7 +10,7 @@ export function Header() {
     <>
       <header className=" bg-amber-950 ">
         <div className=" w-full py-3  flex justify-center items-center">
-          <Link href="/exameConciencia">
+          <Link href="/exameConsciência">
             <h1 className="fontTsuki text-4xl ">AnimaSancta</h1>
           </Link>
         </div>

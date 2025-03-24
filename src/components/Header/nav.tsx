@@ -9,7 +9,8 @@ export function Nav() {
         <Links href="/liturgiaDiaria" text="Liturgia Diária" />
         <Links href="/porQueConfessar" text="Por que confessar?" />
         <Links href="/oracoes" text="Orações" />
-        <Links href="/exameConciencia" text="Exame de conciência" />
+        <Links href="/exameConsciencia" text="Exame de Consciência" />
+        <Links href="/exameConscienciaDiario" text="Exame Diário " />
       </ul>
     </nav>
   );
