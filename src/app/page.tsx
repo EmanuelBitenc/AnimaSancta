@@ -48,7 +48,7 @@ export default function Home() {
               cheia de renovação."
             />
             <SessaoHome
-              link="/exameDiario"
+              link="/exameConscienciaDiario"
               titulo="Exame de Consciência Diário"
               text=", para que durante o dia você possa ir refletindo rapidamente sobre suas ações. Simples e prático, pode ser feito a qualquer momento, fortalecendo sua conexão com Deus e renovando sua caminhada cristã."
             />
