@@ -40,6 +40,11 @@ export default function Home() {
               espírito e renovam a nossa caminhada cristã."
             />
             <SessaoHome
+              link="/terco"
+              titulo="Santo Terço"
+              text=", uma poderosa devoção mariana que nos ajuda a meditar nos mistérios da vida de Jesus e Maria. Reze o terço conosco, seguindo os mistérios gozosos, luminosos, dolorosos e gloriosos, enquanto acompanha as orações e meditações."
+            />
+            <SessaoHome
               link="/oracoes"
               titulo="Orações"
               text="
