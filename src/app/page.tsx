@@ -5,7 +5,8 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import TituloPage from "@/components/tituloPage";
 import EmConstrucao from "@/components/emConstrucao";
-import { SessaoHome } from "@/components/SessaoHome";
+import Image from "next/image";
+import homeImage from "@/app/assets/imgs/home.jpg";
 
 interface FormData {
   dicas: string;
@@ -15,65 +16,89 @@ export default function Home() {
   const methods = useForm<FormData>();
 
   return (
-    <div>
-      <TituloPage titulo="Seja bem-vindo" />
-
-      <div className="flex flex-col items-center gap-6 px-6 ">
-        <div className="containerWhite">
-          <div className="flex flex-col gap-4 sm:gap-10 text-sm sm:text-lg text-pretty mx-auto bg-amber-950/20 rounded-lg p-2 sm:p-5">
-            <p className="text-center">
-              Esta ferramenta foi desenvolvida para ajudar você a realizar seu
-              exame de consciência de forma prática e organizada, facilitando o
-              preparo para a confissão.
-            </p>
-            <p className="text-center">
-              Acessando o menu de navegação, você encontrará opções como
-            </p>
-            <SessaoHome
-              link="/liturgiaDiaria"
-              titulo="Liturgia Diária"
-              text=", acompanhando a Liturgia do Dia de Hoje e mergulhe nas orações,
-              leituras e reflexões que nos ajudam a viver e crescer na fé. A
-              Liturgia Diária é uma oportunidade para se conectar mais
-              profundamente com a Palavra de Deus e com os ensinamentos da
-              Igreja, oferecendo momentos de oração e meditação que fortalecem o
-              espírito e renovam a nossa caminhada cristã."
-            />
-            <SessaoHome
-              link="/terco"
-              titulo="Santo Terço"
-              text=", uma poderosa devoção mariana que nos ajuda a meditar nos mistérios da vida de Jesus e Maria. Reze o terço conosco, seguindo os mistérios gozosos, luminosos, dolorosos e gloriosos, enquanto acompanha as orações e meditações."
-            />
-            <SessaoHome
-              link="/oracoes"
-              titulo="Orações"
-              text="
-              que irão te ajudar a fazer um exame de consciência mais tranquilo
-              e profundo, preparando seu coração para uma confissão sincera e
-              cheia de renovação."
-            />
-            <SessaoHome
-              link="/exameConscienciaDiario"
-              titulo="Exame de Consciência Diário"
-              text=", para que durante o dia você possa ir refletindo rapidamente sobre suas ações. Simples e prático, pode ser feito a qualquer momento, fortalecendo sua conexão com Deus e renovando sua caminhada cristã."
-            />
-
-            <SessaoHome
-              link="/exameConsciencia"
-              titulo="Exame de Consciência"
-              text=", que te ajudará a refletir sobre suas ações e sentimentos. À
-              medida que você seleciona as perguntas, elas são adicionadas à sua
-              confissão, e você pode ir detalhando cada uma. No final, você pode
-              baixar tudo para levar com você no momento da confissão, para não
-              esquecer nenhum detalhe importante."
-            />
-          </div>
-        </div>
-
-        <div>
-          <EmConstrucao />
-        </div>
+    <div className="relative min-h-screen flex flex-col items-center justify-center  overflow-x-hidden ">
+      {/* Frase inspiradora */}
+      <div className="relative z-10 w-full flex flex-col items-center mt-10 mb-4">
+        <h2 className="fontFunnel text-2xl sm:text-4xl text-amber-950 drop-shadow-lg text-center mb-2 max-w-5xl">
+          “No dia em que eu temer, hei de confiar em ti.”
+        </h2>
+        <span className="block text-amber-950 text-sm sm:text-lg italic mb-4">
+          (Salmo 56:3)
+        </span>
+      </div>
+      {/* Cards de navegação */}
+      <div className="relative z-10 w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 py-8">
+        <SessaoHomeCard
+          link="/liturgiaDiaria"
+          titulo="Liturgia Diária"
+          icon="📖"
+          text="Aprofunde-se na Palavra de Deus e nas orações diárias da Igreja."
+        />
+        <SessaoHomeCard
+          link="/terco"
+          titulo="Santo Terço"
+          icon="🕊️"
+          text="Reze e medite os mistérios da vida de Jesus e Maria."
+        />
+        <SessaoHomeCard
+          link="/oracoes"
+          titulo="Orações"
+          icon="🙏"
+          text="Encontre orações para fortalecer sua fé e preparar seu coração."
+        />
+        <SessaoHomeCard
+          link="/exameConscienciaDiario"
+          titulo="Exame de Consciência Diário"
+          icon="🌅"
+          text="Reflexão diária para crescer na vida cristã."
+        />
+        <SessaoHomeCard
+          link="/exameConsciencia"
+          titulo="Exame de Consciência"
+          icon="✝️"
+          text="Prepare-se para a confissão com perguntas e reflexões guiadas."
+        />
+        <SessaoHomeCard
+          link="/porQueConfessar"
+          titulo="Por que Confessar?"
+          icon="🕯️"
+          text="Entenda a importância do sacramento da reconciliação."
+        />
+      </div>
+      {/* Mensagem de construção */}
+      <div className="relative z-10 w-full flex justify-center mt-4">
+        <EmConstrucao />
       </div>
     </div>
+  );
+}
+
+// Novo componente de card estilizado
+function SessaoHomeCard({
+  link,
+  titulo,
+  text,
+  icon,
+}: {
+  link: string;
+  titulo: string;
+  text: string;
+  icon: string;
+}) {
+  return (
+    <Link
+      href={link}
+      className="group block rounded-3xl shadow-lg bg-white/90 border border-amber-200 hover:border-amber-700 hover:shadow-2xl transition-all duration-300 p-6 min-h-[180px] flex flex-col items-center justify-center text-center gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-700"
+    >
+      <span className="text-4xl sm:text-5xl mb-2 drop-shadow-lg group-hover:scale-110 transition-transform">
+        {icon}
+      </span>
+      <span className="fontFunnel text-xl sm:text-2xl text-amber-900 group-hover:text-amber-700 transition-colors">
+        {titulo}
+      </span>
+      <span className="text-amber-800 text-sm sm:text-base opacity-90">
+        {text}
+      </span>
+    </Link>
   );
 }
