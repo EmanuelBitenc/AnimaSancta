@@ -45,9 +45,10 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-7478194700273945" />
       </head>
       <body
-        className={`   bg-gradient-to-l from-[#8e6d59] via-[#977d70] to-[#9a7e6f]`}
+        className={`relative bg-gradient-to-br from-[#f8f5f0] via-[#e9e3d7] to-[#d6c3a1] min-h-screen`}
         suppressHydrationWarning
       >
+        <div className="body-art-overlay" aria-hidden="true"></div>
         <Header />
         {children}
         <SpeedInsights />
