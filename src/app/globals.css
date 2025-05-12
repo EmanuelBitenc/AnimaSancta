@@ -53,7 +53,7 @@ body {
 @media (max-width: 640px) {
   .body-art-overlay {
     background-size: 200% auto, 200% auto;
-    opacity: 0.16;
+    opacity: 0.8;
   }
 }
 
