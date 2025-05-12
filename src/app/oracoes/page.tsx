@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default function Oracoes() {
   return (
-    <div>
+    <div className="relative">
       <TituloPage titulo="Orações" />
 
-      <div className="containerPanel">
+      <div className="containerPanel relative">
         <div className="containerWhite">
           <div className="containerGray ">
             <p>

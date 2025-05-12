@@ -45,7 +45,7 @@ export default function Terco() {
   };
 
   return (
-    <div className="containerPanel">
+    <div className="containerPanel relative">
       <TituloPage titulo="Santo Terço" />
 
       <div className="containerWhite">

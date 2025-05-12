@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ExameConsciencia() {
   return (
-    <div className="mx-auto">
+    <div className="mx-auto relative">
       <TituloPage titulo="Exame de Consciência" />
       <Resumo />
       <div className="w-10/12 sm:w-3/5 mx-auto  select-none">

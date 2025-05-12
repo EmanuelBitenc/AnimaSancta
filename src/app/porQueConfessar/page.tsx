@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function PorQueConfessar() {
   return (
-    <div className="mb-5">
+    <div className="mb-5 relative">
       <div>
         <TituloPage titulo="Por que confessar?" />
       </div>

@@ -8,7 +8,7 @@ import Link from "next/link";
 export function Header() {
   return (
     <>
-      <header className=" bg-amber-950 ">
+      <header className=" bg-amber-950 relative">
         <div className=" w-full py-3  flex justify-center items-center">
           <Link href="/exameConsciência">
             <h1 className="fontTsuki text-4xl ">AnimaSancta</h1>

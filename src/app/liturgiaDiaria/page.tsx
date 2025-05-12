@@ -90,7 +90,7 @@ export default function LiturgiaDiaria() {
     );
 
   return (
-    <div className="containerPanel">
+    <div className="containerPanel relative">
       <TituloPage titulo="Liturgia Diária" />
 
       <div className="containerWhite">

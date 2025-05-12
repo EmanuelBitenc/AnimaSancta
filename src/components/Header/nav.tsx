@@ -3,7 +3,7 @@ import { Links } from "./links";
 
 export function Nav() {
   return (
-    <nav className="py-2 ">
+    <nav className="py-2 relative  bg-amber-950">
       <ul className="flex justify-center items-center flex-wrap gap-3 sm:gap-8 mx-5">
         <Links href="/" text="Home" />
         <Links href="/liturgiaDiaria" text="Liturgia Diária" />

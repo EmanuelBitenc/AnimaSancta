@@ -5,11 +5,11 @@ import { Arrependimento } from "./arrependimento";
 
 export default function exameConscienciaDiario() {
   return (
-    <div>
+    <div className="relative">
       <TituloPage titulo="Exame de Consciência Diário" />
 
       <div>
-        <div className="containerPanel">
+        <div className="containerPanel relative">
           <div className="containerWhite">
             <div className="containerGray ">
               <p>
