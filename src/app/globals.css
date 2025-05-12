@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,10 +9,15 @@
   --foreground: #ffffff;
 
   --fontTsuki: "Tsukimi Rounded", sans-serif;
+  --fontFunnel: "Funnel Display", sans-serif;
 }
 
 .fontTsuki {
   font-family: var(--fontTsuki);
+}
+
+.fontFunnel {
+  font-family: var(--fontFunnel);
 }
 
 .container {
@@ -27,8 +34,27 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: --background;
   font-family: poppins, Helvetica, sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+.body-art-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.8;
+  background: linear-gradient(135deg, #a16f56cc 0%, #a16f56cc 100%),
+    url("/comunhao.jpg") center/cover no-repeat;
+}
+
+@media (max-width: 640px) {
+  .body-art-overlay {
+    background-size: 200% auto, 200% auto;
+    opacity: 0.16;
+  }
 }
 
 .transition-content {
@@ -56,4 +82,18 @@ body {
 
 .liturgiaDiaria-itens {
   @apply mt-4 flex flex-col;
+}
+
+/* Card estilizado para navegação */
+.sessao-card {
+  @apply rounded-3xl shadow-lg bg-white/90 border border-amber-200 hover:border-amber-700 hover:shadow-2xl transition-all duration-300 p-6 min-h-[180px] flex flex-col items-center justify-center text-center gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-700;
+}
+.sessao-card-icon {
+  @apply text-4xl sm:text-5xl mb-2 drop-shadow-lg group-hover:scale-110 transition-transform;
+}
+.sessao-card-title {
+  @apply fontTsuki text-xl sm:text-2xl text-amber-900 group-hover:text-amber-700 transition-colors;
+}
+.sessao-card-text {
+  @apply text-amber-800 text-sm sm:text-base opacity-90;
 }
