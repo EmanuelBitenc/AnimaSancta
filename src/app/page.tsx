@@ -49,7 +49,7 @@ export default function Home() {
         <SessaoHomeCard
           link="/exameConscienciaDiario"
           titulo="Exame de Consciência Diário"
-          icon="🌅"
+          icon="🌃"
           text="Reflexão diária para crescer na vida cristã."
         />
         <SessaoHomeCard
