@@ -180,6 +180,17 @@ export default function LiturgiaDiaria() {
                 </div>
               </section>
 
+              <section className="liturgiaDiaria-itens">
+                <h2 className="text-xl font-semibold">Salmo Responsorial</h2>
+                <p className="text-sm text-gray-500">{data.salmo.referencia}</p>
+                <div className="ml-4">
+                  <p className="italic font-semibold">{data.salmo.refrao}</p>
+                  <p className="text-gray-700 whitespace-pre-line">
+                    {data.salmo.texto}
+                  </p>
+                </div>
+              </section>
+              
               {typeof data.segundaLeitura === "object" && (
                 <section className="liturgiaDiaria-itens">
                   <h2 className="text-xl font-semibold">Segunda Leitura</h2>
@@ -195,16 +206,7 @@ export default function LiturgiaDiaria() {
                 </section>
               )}
 
-              <section className="liturgiaDiaria-itens">
-                <h2 className="text-xl font-semibold">Salmo Responsorial</h2>
-                <p className="text-sm text-gray-500">{data.salmo.referencia}</p>
-                <div className="ml-4">
-                  <p className="italic font-semibold">{data.salmo.refrao}</p>
-                  <p className="text-gray-700 whitespace-pre-line">
-                    {data.salmo.texto}
-                  </p>
-                </div>
-              </section>
+              
 
               <section className="liturgiaDiaria-itens">
                 <h2 className="text-xl font-semibold">Evangelho</h2>
