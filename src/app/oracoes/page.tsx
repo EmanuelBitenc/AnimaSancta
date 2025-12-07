@@ -1,5 +1,4 @@
 import "@/app/globals.css";
-import EmConstrucao from "@/components/emConstrucao";
 import TituloPage from "@/components/tituloPage";
 import { oracoes } from "./data";
 import { Metadata } from "next";
