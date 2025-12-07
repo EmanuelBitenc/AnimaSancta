@@ -4,7 +4,6 @@ import "./globals.css";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import TituloPage from "@/components/tituloPage";
-import EmConstrucao from "@/components/emConstrucao";
 import Image from "next/image";
 import homeImage from "@/app/assets/imgs/home.jpg";
 
@@ -65,10 +64,6 @@ export default function Home() {
           text="Entenda a importância do sacramento da reconciliação."
         />
       </div>
-      {/* Mensagem de construção */}
-      <div className="relative z-10 w-full flex justify-center mt-4">
-        <EmConstrucao />
-      </div>
     </div>
   );
 }
@@ -88,7 +83,7 @@ function SessaoHomeCard({
   return (
     <Link
       href={link}
-      className="group block rounded-3xl shadow-lg bg-white/90 border border-amber-200 hover:border-amber-700 hover:shadow-2xl transition-all duration-300 p-6 min-h-[180px] flex flex-col items-center justify-center text-center gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-700"
+      className="group  rounded-3xl shadow-lg bg-white/90 border border-amber-200 hover:border-amber-700 hover:shadow-2xl transition-all duration-300 p-6 min-h-[180px] flex flex-col items-center justify-center text-center gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-700"
     >
       <span className="text-4xl sm:text-5xl mb-2 drop-shadow-lg group-hover:scale-110 transition-transform">
         {icon}
