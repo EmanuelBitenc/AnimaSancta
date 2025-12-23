@@ -12,7 +12,7 @@
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "jspdf": "^2.5.2",
-    "next": "15.5.7",
+    "next": "15.5.9",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
     "react-hook-form": "^7.54.2",
