@@ -28,7 +28,7 @@ export default function Oracoes() {
           <div className="mt-6">
             {oracoes.map((oracao) => (
               <div key={oracao.id} className="mb-5">
-                <h1 className="text-amber-950 font-semibold text-xl">
+                <h1 className="text-accent font-semibold text-xl">
                   {oracao.titulo}
                 </h1>
                 <p>{oracao.oracao}</p>
