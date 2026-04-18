@@ -9,7 +9,7 @@ export const Links = ({ href, text }: propsLinks) => {
     <li className="p-1">
       <Link
         href={href}
-        className="underline sm:no-underline sm:hover:underline hover:drop-shadow"
+        className="underline sm:no-underline sm:hover:underline hover:text-accent transition-colors duration-200"
       >
         {text}
       </Link>
