@@ -11,6 +11,11 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        accent: "#C19A6B",
+      },
+      fontFamily: {
+        cinzel: ['"Cinzel"', "serif"],
+        inter: ['"Inter"', "sans-serif"],
       },
     },
   },

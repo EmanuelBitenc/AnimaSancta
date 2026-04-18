@@ -1,60 +1,47 @@
-@import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #a28c81;
-  --foreground: #ffffff;
-
-  --fontTsuki: "Tsukimi Rounded", sans-serif;
-  --fontFunnel: "Funnel Display", sans-serif;
-}
-
-.fontTsuki {
-  font-family: var(--fontTsuki);
-}
-
-.fontFunnel {
-  font-family: var(--fontFunnel);
-}
-
-.container {
-  padding-left: 3.5rem;
-  padding-right: 3.5rem;
-}
-
-@media (prefers-color-scheme: black) {
-  :root {
-    --background: #c7bab3;
-    --foreground: #ededed;
-  }
+  --background: #121212;
+  --foreground: #E8E2D8;
+  --accent-gold: #D4AD7A;
+  --accent-dark: #1E2528;
 }
 
 body {
   color: var(--foreground);
-  background: --background;
-  font-family: poppins, Helvetica, sans-serif;
+  background-color: var(--background);
+  font-family: var(--font-inter);
   min-height: 100vh;
   position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
 }
 
 .body-art-overlay {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
-  opacity: 0.8;
-  background: linear-gradient(135deg, #a16f56cc 0%, #a16f56cc 100%),
-    url("/comunhao.jpg") center/cover no-repeat;
-}
-
-@media (max-width: 640px) {
-  .body-art-overlay {
-    background-size: 200% auto, 200% auto;
-    opacity: 0.8;
-  }
+  opacity: 0.03;
+  background-image: url("/comunhao.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .transition-content {
@@ -74,26 +61,42 @@ body {
 }
 
 .containerWhite {
-  @apply sm:max-w-7xl bg-white p-4 sm:py-10 lg:px-52 rounded-lg shadow-md text-gray-800 mb-14;
+  @apply w-full max-w-4xl mx-auto bg-white/5 backdrop-blur-sm p-6 sm:p-12 rounded-xl shadow-sm border border-white/10 text-gray-200 mb-14;
 }
 .containerGray {
-  @apply text-sm sm:text-lg text-center  mx-auto bg-amber-950/20 rounded-lg py-5 px-2;
+  @apply text-sm sm:text-lg text-center mx-auto bg-white/5 rounded-lg py-5 px-4 backdrop-blur-md;
 }
 
 .liturgiaDiaria-itens {
-  @apply mt-4 flex flex-col;
+  @apply mt-6 flex flex-col gap-4;
 }
 
-/* Card estilizado para navegação */
+/* Premium Card Design */
 .sessao-card {
-  @apply rounded-3xl shadow-lg bg-white/90 border border-amber-200 hover:border-amber-700 hover:shadow-2xl transition-all duration-300 p-6 min-h-[180px] flex flex-col items-center justify-center text-center gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-700;
+  @apply relative overflow-hidden rounded-2xl bg-white/15 backdrop-blur-md border border-accent/20 hover:border-accent/60 hover:shadow-xl hover:bg-white/25 transition-all duration-500 ease-out p-8 min-h-[220px] flex flex-col items-center justify-center text-center gap-4 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent;
 }
+
+.sessao-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(193, 154, 107, 0.05), transparent);
+  transition: left 0.7s ease;
+}
+
+.sessao-card:hover::before {
+  left: 100%;
+}
+
 .sessao-card-icon {
-  @apply text-4xl sm:text-5xl mb-2 drop-shadow-lg group-hover:scale-110 transition-transform;
+  @apply text-4xl sm:text-5xl mb-2 drop-shadow-sm group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300;
 }
 .sessao-card-title {
-  @apply fontTsuki text-xl sm:text-2xl text-amber-900 group-hover:text-amber-700 transition-colors;
+  @apply font-cinzel font-semibold text-xl sm:text-2xl text-amber-100 transition-colors duration-300;
 }
 .sessao-card-text {
-  @apply text-amber-800 text-sm sm:text-base opacity-90;
+  @apply font-inter text-slate-400 text-sm sm:text-base leading-relaxed;
 }
