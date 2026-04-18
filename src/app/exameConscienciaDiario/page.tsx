@@ -7,11 +7,10 @@ export default function exameConscienciaDiario() {
   return (
     <div className="relative">
       <TituloPage titulo="Exame de Consciência Diário" />
-
       <div>
         <div className="containerPanel relative">
           <div className="containerWhite">
-            <div className="containerGray ">
+            <div className="containerGray">
               <p>
                 Ao decorrer do dia, reserve alguns minutos para refletir na
                 presença de Deus. Este exame rápido é um momento para agradecer,
@@ -21,13 +20,9 @@ export default function exameConscienciaDiario() {
               </p>
             </div>
             <div className="text-sm sm:text-lg">
-              <div>
-                <ExameDiario />
-              </div>
-              <div>
-                <Arrependimento />
-              </div>
-              <p className="text-amber-950 text-sm sm:text-xl mt-16 mb-4 text-center font-semibold">
+              <div><ExameDiario /></div>
+              <div><Arrependimento /></div>
+              <p className="text-accent text-sm sm:text-xl mt-16 mb-4 text-center font-semibold">
                 Pronto! Termine com um instante de silêncio, entregue-se à paz
                 de Deus e fique tranquilo, sabendo que Ele está com você.
               </p>
