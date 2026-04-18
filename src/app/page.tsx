@@ -15,18 +15,20 @@ export default function Home() {
   const methods = useForm<FormData>();
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center  overflow-x-hidden ">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-x-hidden pt-12 pb-20">
       {/* Frase inspiradora */}
-      <div className="relative z-10 w-full flex flex-col items-center mt-10 mb-4">
-        <h2 className="fontFunnel text-2xl sm:text-4xl text-amber-950 drop-shadow-lg text-center mb-2 max-w-5xl">
+      <div className="relative z-10 w-full flex flex-col items-center mt-10 mb-12 px-4">
+        <h2 className="font-cinzel font-semibold text-3xl sm:text-4xl md:text-5xl text-amber-100 drop-shadow-sm text-center mb-4 max-w-4xl leading-tight">
           “No dia em que eu temer, hei de confiar em ti.”
         </h2>
-        <span className="block text-amber-950 text-sm sm:text-lg italic mb-4">
+        <span className="block text-slate-400 font-inter text-sm sm:text-lg italic mb-4">
           (Salmo 56:3)
         </span>
+        <div className="w-24 h-px bg-gradient-to-r from-transparent via-accent to-transparent mt-4"></div>
       </div>
+      
       {/* Cards de navegação */}
-      <div className="relative z-10 w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 py-8">
+      <div className="relative z-10 w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
         <SessaoHomeCard
           link="/liturgiaDiaria"
           titulo="Liturgia Diária"
@@ -81,19 +83,10 @@ function SessaoHomeCard({
   icon: string;
 }) {
   return (
-    <Link
-      href={link}
-      className="group  rounded-3xl shadow-lg bg-white/90 border border-amber-200 hover:border-amber-700 hover:shadow-2xl transition-all duration-300 p-6 min-h-[180px] flex flex-col items-center justify-center text-center gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-700"
-    >
-      <span className="text-4xl sm:text-5xl mb-2 drop-shadow-lg group-hover:scale-110 transition-transform">
-        {icon}
-      </span>
-      <span className="fontFunnel text-xl sm:text-2xl text-amber-900 group-hover:text-amber-700 transition-colors">
-        {titulo}
-      </span>
-      <span className="text-amber-800 text-sm sm:text-base opacity-90">
-        {text}
-      </span>
+    <Link href={link} className="sessao-card group">
+      <span className="sessao-card-icon">{icon}</span>
+      <h3 className="sessao-card-title">{titulo}</h3>
+      <p className="sessao-card-text">{text}</p>
     </Link>
   );
 }

@@ -38,14 +38,10 @@ export default function RootLayout({
         <meta charSet="utf-8" />
 
         <link rel="icon" type="image/png" href={"/iconPage.png"} />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Tsukimi+Rounded&display=swap"
-          rel="stylesheet"
-        />
         <meta name="google-adsense-account" content="ca-pub-7478194700273945" />
       </head>
       <body
-        className={`relative bg-gradient-to-br from-[#f8f5f0] via-[#e9e3d7] to-[#d6c3a1] min-h-screen`}
+        className="relative min-h-screen font-inter antialiased"
         suppressHydrationWarning
       >
         <div className="body-art-overlay" aria-hidden="true"></div>
