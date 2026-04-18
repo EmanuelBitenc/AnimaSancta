@@ -13,7 +13,6 @@ export default function LiturgiaDiaria() {
     ano: new Date().getFullYear().toString(),
   });
 
-  // Gerar opções para os selects
   const dias = Array.from({ length: 31 }, (_, i) =>
     (i + 1).toString().padStart(2, "0")
   );
@@ -25,20 +24,9 @@ export default function LiturgiaDiaria() {
     (anoAtual - 5 + i).toString()
   );
 
-  // Nomes dos meses para exibição
   const nomesMeses = [
-    "Janeiro",
-    "Fevereiro",
-    "Março",
-    "Abril",
-    "Maio",
-    "Junho",
-    "Julho",
-    "Agosto",
-    "Setembro",
-    "Outubro",
-    "Novembro",
-    "Dezembro",
+    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+    "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro",
   ];
 
   useEffect(() => {
@@ -48,210 +36,219 @@ export default function LiturgiaDiaria() {
         const { dia, mes, ano } = selectedDate;
         const res = await fetch(
           `https://liturgia.up.railway.app/?dia=${dia}&mes=${mes}&ano=${ano}`,
-          {
-            cache: "no-store",
-          }
+          { cache: "no-store" }
         );
         const json = await res.json();
-
-        // Verificar se há erro na resposta
         if (json.erro) {
           setError(json.erro);
           setData(null);
           return;
         }
-
         setData(json);
       } catch (err) {
         console.error("Erro ao buscar os dados:", err);
-        setError(
-          "Ocorreu um erro ao buscar a liturgia. Por favor, tente novamente."
-        );
+        setError("Ocorreu um erro ao buscar a liturgia. Por favor, tente novamente.");
         setData(null);
       }
     }
-
     fetchLiturgia();
   }, [selectedDate]);
 
   const handleDateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setSelectedDate((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setSelectedDate((prev) => ({ ...prev, [name]: value }));
   };
 
   if (!data && !error)
     return (
-      <p className="text-center text-amber-950 font-bold text-lg my-4">
-        Carregando...
-      </p>
+      <div className="flex items-center justify-center py-20">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+          <p className="text-accent font-medium text-lg">Carregando liturgia...</p>
+        </div>
+      </div>
     );
 
   return (
-    <div className="containerPanel relative">
+    <div className="containerPanel relative pb-10">
       <TituloPage titulo="Liturgia Diária" />
 
-      <div className="containerWhite">
-        <div className="mb-6 flex flex-col items-center">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Selecione a data da liturgia:
-          </label>
-          <div className="flex space-x-2">
+      {/* Seletor de Data */}
+      <div className="w-full max-w-4xl mx-auto mb-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <span className="text-sm font-medium text-gray-400 uppercase tracking-wider">Data:</span>
+          <div className="flex gap-2">
             <select
               name="dia"
               value={selectedDate.dia}
               onChange={handleDateChange}
-              className="px-3  py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-center"
+              className="px-4 py-2.5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-center bg-white/10 text-gray-200 appearance-none cursor-pointer hover:bg-white/15 transition-colors"
             >
               {dias.map((dia) => (
-                <option key={dia} value={dia} className="text-center">
-                  {dia}
-                </option>
+                <option key={dia} value={dia} className="bg-gray-800">{dia}</option>
               ))}
             </select>
-
             <select
               name="mes"
               value={selectedDate.mes}
               onChange={handleDateChange}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-center"
+              className="px-4 py-2.5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-center bg-white/10 text-gray-200 appearance-none cursor-pointer hover:bg-white/15 transition-colors"
             >
               {meses.map((mes, index) => (
-                <option key={mes} value={mes} className="text-center">
-                  {nomesMeses[index]}
-                </option>
+                <option key={mes} value={mes} className="bg-gray-800">{nomesMeses[index]}</option>
               ))}
             </select>
-
             <select
               name="ano"
               value={selectedDate.ano}
               onChange={handleDateChange}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-center"
+              className="px-4 py-2.5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-center bg-white/10 text-gray-200 appearance-none cursor-pointer hover:bg-white/15 transition-colors"
             >
               {anos.map((ano) => (
-                <option key={ano} value={ano} className="text-center">
-                  {ano}
-                </option>
+                <option key={ano} value={ano} className="bg-gray-800">{ano}</option>
               ))}
             </select>
           </div>
         </div>
-
-        {error ? (
-          <div className="p-6 bg-white border border-amber-900 rounded-lg text-center">
-            <h2 className="text-xl font-semibold text-amber-800 mb-2">
-              Liturgia não encontrada
-            </h2>
-            <p className="text-amber-900">{error}</p>
-            <p className="text-sm text-amber-900 mt-2">
-              Por favor, selecione outra data.
-            </p>
-          </div>
-        ) : (
-          data && (
-            <>
-              <div className="containerGray">
-                <h1 className="text-2xl font-bold text-gray-800">
-                  {data.liturgia}
-                </h1>
-                <p className="text-sm text-gray-500">
-                  {data.data} - Cor: {data.cor}
-                </p>
-              </div>
-
-              <section className="liturgiaDiaria-itens">
-                <h2 className="text-xl font-semibold">Oração do Dia</h2>
-                <div className="ml-4">
-                  <p className="text-gray-700">{data.dia}</p>
-                </div>
-              </section>
-
-              <section className="liturgiaDiaria-itens">
-                <h2 className="text-xl font-semibold">Primeira Leitura</h2>
-                <p className="text-sm text-gray-500">
-                  {data.primeiraLeitura.referencia}
-                </p>
-                <div className="ml-4">
-                  <p className="font-semibold">{data.primeiraLeitura.titulo}</p>
-                  <p className="text-gray-700">{data.primeiraLeitura.texto}</p>
-                </div>
-              </section>
-
-              <section className="liturgiaDiaria-itens">
-                <h2 className="text-xl font-semibold">Salmo Responsorial</h2>
-                <p className="text-sm text-gray-500">{data.salmo.referencia}</p>
-                <div className="ml-4">
-                  <p className="italic font-semibold">{data.salmo.refrao}</p>
-                  <p className="text-gray-700 whitespace-pre-line">
-                    {data.salmo.texto}
-                  </p>
-                </div>
-              </section>
-              
-              {typeof data.segundaLeitura === "object" && (
-                <section className="liturgiaDiaria-itens">
-                  <h2 className="text-xl font-semibold">Segunda Leitura</h2>
-                  <p className="text-sm text-gray-500">
-                    {data.segundaLeitura.referencia}
-                  </p>
-                  <div className="ml-4">
-                    <p className="font-semibold">
-                      {data.segundaLeitura.titulo}
-                    </p>
-                    <p className="text-gray-700">{data.segundaLeitura.texto}</p>
-                  </div>
-                </section>
-              )}
-
-              
-
-              <section className="liturgiaDiaria-itens">
-                <h2 className="text-xl font-semibold">Evangelho</h2>
-
-                <p className="text-sm text-gray-500">
-                  {data.evangelho.referencia}
-                </p>
-                <div className="ml-4">
-                  <p className="font-semibold">{data.evangelho.titulo}</p>
-                  <p className="text-gray-700">{data.evangelho.texto}</p>
-                </div>
-              </section>
-
-              <section className="liturgiaDiaria-itens">
-                <h2 className="text-xl font-semibold">Oferendas</h2>
-                <div className="ml-4">
-                  <p className="text-gray-700">{data.oferendas}</p>
-                </div>
-              </section>
-
-              <section className="liturgiaDiaria-itens">
-                <h2 className="text-xl font-semibold">Comunhão</h2>
-                <div className="ml-4">
-                  <p className="text-gray-700">{data.comunhao}</p>
-                </div>
-              </section>
-
-              <section className="liturgiaDiaria-itens">
-                <h2 className="text-xl font-semibold">Antífonas</h2>
-
-                <p className="font-semibold">Entrada:</p>
-                <div className="ml-4">
-                  {" "}
-                  <p className="text-gray-700">{data.antifonas.entrada}</p>
-                </div>
-                <p className="font-semibold mt-2">Comunhão:</p>
-                <div className="ml-4">
-                  {" "}
-                  <p className="text-gray-700">{data.antifonas.comunhao}</p>
-                </div>
-              </section>
-            </>
-          )
-        )}
       </div>
+
+      {error ? (
+        <div className="w-full max-w-4xl mx-auto p-8 bg-white/5 border border-accent/30 rounded-xl text-center">
+          <h2 className="text-xl font-semibold text-accent mb-2">Liturgia não encontrada</h2>
+          <p className="text-slate-300">{error}</p>
+          <p className="text-sm text-slate-400 mt-2">Por favor, selecione outra data.</p>
+        </div>
+      ) : (
+        data && (
+          <div className="w-full max-w-4xl mx-auto flex flex-col gap-6">
+
+            {/* Cabeçalho da Liturgia */}
+            <div className="text-center py-6 px-4 bg-white/5 rounded-xl border border-white/10">
+              <h1 className="font-cinzel text-2xl sm:text-3xl font-semibold text-gray-100 mb-2">
+                {data.liturgia}
+              </h1>
+              <p className="text-sm text-gray-400">{data.data}</p>
+              <div className="mt-3 inline-flex items-center gap-2 px-4 py-1.5 bg-accent/15 rounded-full">
+                <span className="w-2.5 h-2.5 rounded-full bg-accent" />
+                <span className="text-sm text-accent font-medium">Cor Litúrgica: {data.cor}</span>
+              </div>
+            </div>
+
+            {/* Oração do Dia */}
+            <LeituraCard titulo="Oração do Dia" emoji="🙏">
+              <p className="text-gray-300 leading-relaxed">{data.dia}</p>
+            </LeituraCard>
+
+            {/* Primeira Leitura */}
+            <LeituraCard
+              titulo="Primeira Leitura"
+              referencia={data.primeiraLeitura.referencia}
+              emoji="📖"
+            >
+              <p className="font-semibold text-gray-200 mb-3">{data.primeiraLeitura.titulo}</p>
+              <p className="text-gray-300 leading-relaxed whitespace-pre-line">{data.primeiraLeitura.texto}</p>
+            </LeituraCard>
+
+            {/* Salmo Responsorial */}
+            <LeituraCard
+              titulo="Salmo Responsorial"
+              referencia={data.salmo.referencia}
+              emoji="🎶"
+            >
+              <div className="bg-accent/10 border-l-4 border-accent px-4 py-3 rounded-r-lg mb-4">
+                <p className="italic font-semibold text-accent">{data.salmo.refrao}</p>
+              </div>
+              <p className="text-gray-300 leading-relaxed whitespace-pre-line">{data.salmo.texto}</p>
+            </LeituraCard>
+
+            {/* Segunda Leitura (condicional) */}
+            {typeof data.segundaLeitura === "object" && (
+              <LeituraCard
+                titulo="Segunda Leitura"
+                referencia={data.segundaLeitura.referencia}
+                emoji="📜"
+              >
+                <p className="font-semibold text-gray-200 mb-3">{data.segundaLeitura.titulo}</p>
+                <p className="text-gray-300 leading-relaxed whitespace-pre-line">{data.segundaLeitura.texto}</p>
+              </LeituraCard>
+            )}
+
+            {/* Evangelho */}
+            <LeituraCard
+              titulo="Evangelho"
+              referencia={data.evangelho.referencia}
+              emoji="✝️"
+              destaque
+            >
+              <p className="font-semibold text-gray-200 mb-3">{data.evangelho.titulo}</p>
+              <p className="text-gray-300 leading-relaxed whitespace-pre-line">{data.evangelho.texto}</p>
+            </LeituraCard>
+
+            {/* Oferendas e Comunhão lado a lado */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <LeituraCard titulo="Oferendas" emoji="🍷">
+                <p className="text-gray-300 leading-relaxed">{data.oferendas}</p>
+              </LeituraCard>
+              <LeituraCard titulo="Comunhão" emoji="🍞">
+                <p className="text-gray-300 leading-relaxed">{data.comunhao}</p>
+              </LeituraCard>
+            </div>
+
+            {/* Antífonas */}
+            <LeituraCard titulo="Antífonas" emoji="🎵">
+              <div className="space-y-4">
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-accent">Entrada</span>
+                  <p className="text-gray-300 leading-relaxed mt-1">{data.antifonas.entrada}</p>
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-accent">Comunhão</span>
+                  <p className="text-gray-300 leading-relaxed mt-1">{data.antifonas.comunhao}</p>
+                </div>
+              </div>
+            </LeituraCard>
+
+          </div>
+        )
+      )}
     </div>
+  );
+}
+
+/* Componente de card reutilizável para cada seção da liturgia */
+function LeituraCard({
+  titulo,
+  referencia,
+  emoji,
+  destaque,
+  children,
+}: {
+  titulo: string;
+  referencia?: string;
+  emoji?: string;
+  destaque?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <section
+      className={`rounded-xl p-6 sm:p-8 border transition-colors ${
+        destaque
+          ? "bg-accent/5 border-accent/30"
+          : "bg-white/5 border-white/10"
+      }`}
+    >
+      <div className="flex items-center gap-3 mb-4">
+        {emoji && <span className="text-2xl">{emoji}</span>}
+        <div>
+          <h2 className="font-cinzel text-lg sm:text-xl font-semibold text-accent">{titulo}</h2>
+          {referencia && (
+            <p className="text-xs text-gray-500 mt-0.5 uppercase tracking-wider">{referencia}</p>
+          )}
+        </div>
+      </div>
+      <div className="border-t border-white/5 pt-4">
+        {children}
+      </div>
+    </section>
   );
 }
